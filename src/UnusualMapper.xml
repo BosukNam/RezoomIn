@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="UnusualMapper">
+ 
+ <resultMap id="unusualMap" type="UnusualDTO">
+		<result property="memberID" column="member_id" ></result>
+	 	<result property="isRewarded" column="is_rewarded" ></result>
+	 	<result property="isDisabled" column="is_disabled" ></result>
+	 	
+	 	<association property="disability" javaType="UnusualCategoryDTO" >
+	 	 	<result property="disabilityCode" column="disability_code" ></result>
+	 		<result property="disability" column="disability" ></result>
+	 	</association>
+	 	
+  </resultMap>
+ 
+ 	<insert id="insert" parameterType="UnusualDTO">
+ 		insert into unusual_tb 
+ 		values(#{memberID}, #{isRewarded}, #{isDisabled}, #{disability.disabilityCode, jdbcType=VARCHAR})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="UnusualDTO">
+	 	update unusual_tb set is_rewarded = #{isRewarded}, 
+	 	is_disabled = #{isDisabled}, disability_code = #{disability.disabilityCode, jdbcType=VARCHAR}
+	 	where member_id = #{memberID}
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="String">
+ 		delete unusual_tb
+ 		where member_id = #{memberID}
+ 	</delete>
+ 	
+ 	<select id="selectById" resultMap="unusualMap" parameterType="String">
+ 		SELECT member_id, is_rewarded, is_disabled, ut.disability_code, disability 
+		FROM unusual_tb ut
+		LEFT OUTER JOIN unusual_category_tb ct 
+		ON ut.disability_code = ct.disability_code
+		WHERE ut.member_id = #{memberID}
+ 	</select>
+ </mapper>

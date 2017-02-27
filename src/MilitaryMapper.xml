@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="MilitaryMapper">
+ 
+ 	<resultMap id="militaryMap" type="MilitaryDTO">
+		<result property="memberID" column="member_id" ></result>
+	 	<result property="pass" column="pass" ></result>
+	 	<result property="startDate" column="start_date" ></result>
+	 	<result property="endDate" column="end_date" ></result>
+	 	
+	 	<association property="category" javaType="MilitaryCategoryDTO" >
+	 	 	<result property="categoryCode" column="category_code" ></result>
+	 		<result property="category" column="category" ></result>
+	 	</association>
+	 	
+	 	<association property="rank" javaType="MilitaryRankCategoryDTO" >
+	 	 	<result property="rankCode" column="rank_code" ></result>
+	 		<result property="rank" column="rank" ></result>
+	 	</association>
+	 	
+  </resultMap>
+ 
+ 	<insert id="insert" parameterType="MilitaryDTO">
+ 		insert into military_tb 
+ 		values(#{memberID}, #{pass}, #{startDate, jdbcType=VARCHAR}, #{endDate, jdbcType=VARCHAR}, 
+ 		#{category.categoryCode, jdbcType=VARCHAR}, #{rank.rankCode, jdbcType=VARCHAR})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="MilitaryDTO">
+	 	update military_tb set pass = #{pass}, start_date = #{startDate}, 
+	 	end_date = #{endDate}, category_code = #{category.categoryCode}, rank_code = #{rank.rankCode}
+	 	where member_id = #{memberID}
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="String">
+ 		delete military_tb
+ 		where member_id = #{memberID}
+ 	</delete>
+ 	
+ 	<select id="selectById" resultMap="militaryMap" parameterType="string">
+ 		SELECT member_id, pass, start_date, end_date, mt.category_code, category, mt.rank_code, rank 
+		FROM military_tb mt
+		LEFT OUTER JOIN military_category_tb ct 
+		ON mt.category_code = ct.category_code 
+		LEFT OUTER JOIN military_rank_category_tb rt 
+		ON mt.rank_code = rt.rank_code 
+		WHERE mt.member_id = #{memberID}
+ 	</select>
+ </mapper>

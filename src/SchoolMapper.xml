@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="SchoolMapper">
+  
+ 	<resultMap id="schoolMap" type="SchoolDTO" autoMapping="true">
+		<result property="memberID" column="member_id" ></result>
+	 	<result property="registerNo" column="register_no" ></result>
+	 	<result property="startDate" column="start_date" ></result>
+	 	<result property="endDate" column="end_date" ></result>
+	 	
+	 	<association property="category" javaType="SchoolCategoryDTO">
+	 	 	<result property="categoryCode" column="category_code" ></result>
+	 		<result property="category" column="category" ></result>
+	 	</association>
+	 	<association property="track" javaType="SchoolTrackCategoryDTO">
+	 	 	<result property="trackCode" column="track_code" ></result>
+	 		<result property="track" column="track" ></result>
+	 	</association>
+  </resultMap> 
+  
+ 	<resultMap id="graduatedSchoolMap" type="GraduatedSchoolDTO" autoMapping="true">
+		<result property="memberID" column="member_id" ></result>
+	 	<result property="registerNo" column="register_no" ></result>
+	 	<result property="startDate" column="start_date" ></result>
+	 	<result property="endDate" column="end_date" ></result>
+	 	
+	 	<association property="category" javaType="SchoolCategoryDTO">
+	 	 	<result property="categoryCode" column="category_code" ></result>
+	 		<result property="category" column="category" ></result>
+	 	</association>
+	 	<association property="track" javaType="SchoolTrackCategoryDTO">
+	 	 	<result property="trackCode" column="track_code" ></result>
+	 		<result property="track" column="track" ></result>
+	 	</association>
+	 	<association property="degree" javaType="SchoolDegreeCategoryDTO">
+	 	 	<result property="degreeCode" column="degree_code" ></result>
+	 		<result property="degree" column="degree" ></result>
+	 	</association>
+	 	<association property="totalGrade" javaType="SchoolTotalGradeCategoryDTO">
+	 	 	<result property="totalGradeCode" column="total_grade_code" ></result>
+	 		<result property="totalGrade" column="total_grade" ></result>
+	 	</association>
+	 	<association property="state" javaType="SchoolStateCategoryDTO">
+	 	 	<result property="stateCode" column="state_code" ></result>
+	 		<result property="state" column="state" ></result>
+	 	</association>
+  </resultMap> 
+  
+ 	<insert id="insertSchool" parameterType="SchoolDTO">
+ 		insert into school_tb(MEMBER_ID, REGISTER_NO, 
+			CATEGORY_CODE, NAME, TRACK_CODE, MAJOR, START_DATE, END_DATE) 
+		values(#{memberID}, school_seq.NEXTVAL, #{category.categoryCode}, 
+			#{name}, #{track.trackCode}, #{major}, #{startDate}, #{endDate})
+ 	</insert>
+ 	
+ 	<insert id="insertGraduatedSchool" parameterType="GraduatedSchoolDTO">
+ 		insert all 
+		into school_tb (MEMBER_ID, REGISTER_NO, CATEGORY_CODE, NAME, 
+			TRACK_CODE, MAJOR, START_DATE, END_DATE) 
+		values(#{memberID}, school_seq.NEXTVAL, #{category.categoryCode}, #{name},
+			 #{track.trackCode}, #{major}, #{startDate}, #{endDate}) 
+		into graduate_school_tb (MEMBER_ID, REGISTER_NO, DEGREE_CODE, 
+			GRADE, TOTAL_GRADE_CODE, LOCATION, STATE_CODE) 
+		values(#{memberID}, school_seq.NEXTVAL, #{degree.degreeCode}, 
+			#{grade}, #{totalGrade.totalGradeCode}, #{location, jdbcType=VARCHAR}, #{state.stateCode}) 
+		select * from dual
+ 	</insert>
+ 	
+ 	<update id="updateSchool" parameterType="SchoolDTO">
+	 	update school_tb 
+	 	set category_code = #{category.categoryCode}, name = #{name}, track_code = #{track.trackCode}, 
+	 		major = #{major}, start_date = #{startDate}, end_date = #{endDate} 
+		where register_no = #{registerNo}
+ 	</update>
+ 	
+ 	<update id="updateGraduatedSchool" parameterType="GraduatedSchoolDTO">
+	 	update graduate_school_tb 
+	 	set degree_code = #{degree.degreeCode}, grade = Round(#{grade},2), 
+	 		total_grade_code = #{totalGrade.totalGradeCode}, location = #{location}, state_code = #{stateCode} 
+		where register_no = #{registerNo}
+ 	</update>
+ 	
+ 	<delete id="deleteSchoolById" parameterType="string">
+ 		delete school_tb
+ 		where member_id = #{memberID}
+ 	</delete>
+ 	
+ 	<delete id="deleteSchoolByNo" parameterType="int">
+ 		delete school_tb
+ 		where register_no = #{registerNo}
+ 	</delete>
+ 	
+ 	<delete id="deleteGraduatedSchoolById" parameterType="string">
+ 		delete graduate_school_tb
+ 		where member_id = #{memberID}
+ 	</delete>
+ 	
+ 	<delete id="deleteGraduatedSchoolByNo" parameterType="int">
+ 		delete graduate_school_tb
+ 		where register_no = #{registerNo}
+ 	</delete>
+ 	
+ 	<select id="selectSchoolById" resultMap="schoolMap" parameterType="string">
+ 		select * 
+		from school_tb st 
+		JOIN school_category_tb ct 
+		ON st.category_code = ct.category_code 
+		JOIN school_track_category_tb ct
+		ON st.track_code = ct.track_code 
+		where member_id = #{memberID} AND st.category_code='SC1'
+ 	</select> 
+ 	
+ 	<select id="selectSchoolByNo" resultMap="schoolMap" parameterType="int">
+ 		select * 
+		from school_tb st 
+		JOIN school_category_tb ct 
+		ON st.category_code = ct.category_code 
+		JOIN school_track_category_tb ct
+		ON st.track_code = ct.track_code 
+		where st.register_no = #{registerNo} AND st.category_code='SC1'
+ 	</select> 
+ 	
+ 	<select id="selectGraduatedSchoolById" resultMap="graduatedSchoolMap" parameterType="string">
+ 		SELECT * 
+		FROM graduate_school_tb gt 
+		JOIN school_tb st 
+		ON gt.register_no = st.register_no 
+		JOIN school_category_tb ct 
+		ON st.category_code = ct.category_code 
+		JOIN school_track_category_tb tt 
+		ON st.track_code = tt.track_code 
+		JOIN school_degree_category_tb dt 
+		ON gt.degree_code = dt.degree_code 
+		JOIN school_totalgrade_category_tb tgt 
+		ON gt.total_grade_code = tgt.total_grade_code 
+		JOIN school_state_category_tb stt 
+		ON gt.state_code = stt.state_code 
+		WHERE gt.member_id = #{memberID} AND st.category_code!='SC1'
+ 	</select> 
+ 	
+ 	<select id="selectGraduatedSchoolByNo" resultMap="graduatedSchoolMap" parameterType="int">
+ 		SELECT * 
+		FROM graduate_school_tb gt 
+		JOIN school_tb st 
+		ON gt.register_no = st.register_no 
+		JOIN school_category_tb ct 
+		ON st.category_code = ct.category_code 
+		JOIN school_track_category_tb tt 
+		ON st.track_code = tt.track_code 
+		JOIN school_degree_category_tb dt 
+		ON gt.degree_code = dt.degree_code 
+		JOIN school_totalgrade_category_tb tgt 
+		ON gt.total_grade_code = tgt.total_grade_code 
+		JOIN school_state_category_tb stt 
+		ON gt.state_code = stt.state_code 
+		WHERE gt.register_no= #{registerNo} AND st.category_code!='SC1'
+ 	</select> 
+ 	
+ 	<select id="selectLastRegisterNo" resultType="int">
+ 	<![CDATA[
+ 	 	select * from (select * from(select rownum rnum, register_no, member_id
+        from (select * from school_tb order by register_no desc)) 
+        where rnum <=1) where rnum >=1
+     ]]>
+ 	</select>  
+ </mapper>

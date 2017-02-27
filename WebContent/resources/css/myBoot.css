@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+
+.myClose {
+  float: none;
+  margin: 0px;
+  padding: 0px;
+  right:0px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+} 
+
+.btn-circle {
+  text-align: center;
+  padding: 5px 0;
+  font-size: 15px;
+  line-height: 2.00;
+  border-radius: 20px;
+}
+
+.wrap {
+    width: 600px;
+    height: auto;
+    position: relative;
+    display: inline-block;
+}
+.wrap textarea {
+    width: 100%;
+    resize: none;
+    min-height: 9em;
+    line-height:1.6em;
+    max-height: 9em;
+}
+.wrap span {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+#counter1,#counter2,#counter3,#counter4,#counter5,#counter6,#counter7 {
+  border-radius: 0.5em;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  padding-top:0px;
+  font-size: 14px;
+}
+
+#childBackground {
+	height: 380px;
+    background-image: url(https://media.giphy.com/media/5X7GDf7zc1Ebu/giphy.gif),
+    url(http://junecline.com/wp-content/uploads/2013/10/greenbackground.jpg);
+    background-position: bottom, left top;
+    background-repeat: no-repeat, repeat;
+    background-size: 5em, 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#studentBackground {
+	height: 380px;
+    background-image: url(http://www.edu.xunta.gal/centros/iesfontexeria/system/files/u2/feliz_0.gif),
+    url(http://junecline.com/wp-content/uploads/2013/10/greenbackground.jpg);
+    background-position: bottom, left top;
+    background-repeat: no-repeat, repeat;
+    background-size: 5em, 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#univBackground {
+	height: 380px;
+    background-image: url(https://2.bp.blogspot.com/-o88VvpBfKWI/VxRto84RgJI/AAAAAAABc5s/Df8lp6bi4ukg10CILAazxJ7dxTrX1fDWwCLcB/s1600/images-animated-gif.blogspot.com.gif),
+    url(http://junecline.com/wp-content/uploads/2013/10/greenbackground.jpg);
+    background-position: bottom, left top;
+    background-repeat: no-repeat, repeat;
+    background-size: 5em, 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#companyBackground {
+	height: 380px;
+    background-image: url(http://25.media.tumblr.com/93d2e3c2c0a506b38ab503f970c4b263/tumblr_mmc1ockotE1rnwo2vo1_500.gif),
+    url(http://junecline.com/wp-content/uploads/2013/10/greenbackground.jpg);
+    background-position: bottom, left top;
+    background-repeat: no-repeat, repeat;
+    background-size: 5em, 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#goalBackground {
+	height: 380px;
+    background-image: url(https://media.giphy.com/media/I7V6Te1Ka0U00/giphy.gif);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#strengthBackground {
+	height: 380px;
+    background-image: url(http://media.istockphoto.com/photos/hands-giving-thumbs-up-picture-id486352378?k=6&m=486352378&s=170667a&w=0&h=N_xp5AYw-MxOv7M5cKLfSD7V-colj95sEDqM-BQGUzc=);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 600px 400px ;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#overcomeBackground {
+	height: 380px;
+    background-image: url(http://www.success.com/sites/default/files/styles/article_main/public/main/articles/tipstoovercomeyourfears.jpg?itok=LHkDaxel);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#readyBackground {
+	height: 380px;
+    background-image: url(https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/bAz/image/F3CybtcqqA4pFfrbY50RkkWq4jQ);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+}

@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+.panel-body {
+	height: 220px;
+	overflow: hidden;
+}

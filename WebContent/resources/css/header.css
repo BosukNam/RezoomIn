@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.header_style{
+	background-color:#F5F0E5;
+	margin-top:0px;
+}
+.header_presentation>li{
+	margin : 0px 100px 0px 50px;
+	
+}
+.header_presentation>li>a, 
+.header_presentation>li>a>small{
+	color : #545C5B;
+	font-size : 1.3em;
+}
+.page_margin{
+	margin-top : 70px;
+}
+.personal_info_style{
+	margin-right : 20px;
+}
+.personal_info_style>a{
+	margin : 0 5px;
+	color : #545C5B;
+	font-size: 1.1em;
+}
+.header_nav_style{
+}

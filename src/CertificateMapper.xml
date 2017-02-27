@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CertificateMapper">
+	<resultMap id="CertificateMap" type="com.omazing.resume.dto.CertificateDTO">
+		<result column="name" property="name" />
+		<result column="certificate_date" property="date" />
+		<result column="publication" property="publication" />
+		<result column="register_no" property="registerNo" />
+		<result column="member_id" property="memberID" />
+	</resultMap>
+	 <insert id="insertCertificate" parameterType="com.omazing.resume.dto.CertificateDTO">
+  	insert into certificate_tb(register_no, name, 
+  		certificate_date, publication, member_id) 
+  		values
+  		(certificate_seq.nextval, #{name}, #{date}, 
+  		#{publication}, #{memberID})
+  </insert>
+  <update id="updateCertificate" parameterType="com.omazing.resume.dto.CertificateDTO">
+  	update certificate_tb set name= #{name}, 
+		certificate_date= #{date}, publication= #{publication} 
+		where register_no= #{registerNo} and member_id= #{memberID}
+  </update>
+  <delete id="deleteCertificate" parameterType="Map">
+  	delete certificate_tb where member_id= #{id} and register_no= #{registerNo}
+  </delete>
+  <select id="nextCertificateNo" resultType="int">
+	SELECT NVL(MAX(register_no)-1,0)
+	FROM certificate_tb
+</select>
+  <!-- myBatis는 자료형 안에 들어가는 타입을 써줘야한다 -->
+  <select id="selectCertificateAll" resultMap="CertificateMap" parameterType="String">
+     select ce.register_no, ce.name, ce.certificate_date,
+				ce.publication, ce.member_id
+				from certificate_tb ce
+				join private_member_tb pm
+				on ce.member_id = pm.member_id
+				where pm.member_id = #{memberID}
+  </select>
+</mapper>

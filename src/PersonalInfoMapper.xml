@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="PersonalInfoMapper">
+ 
+	 <resultMap id="personalMap" type="PersonalInfoDTO" autoMapping="true">
+			<result property="memberID" column="member_id" ></result>
+		 	<result property="birthDate" column="birth_date" ></result>
+		 	<result property="phoneNo" column="phone_no" ></result>
+		 	<result property="englishName" column="english_name" ></result>
+	  </resultMap>
+	  
+ 	<insert id="insert" parameterType="PersonalInfoDTO">
+ 		insert into personal_info_tb 
+ 		values (#{memberID}, #{name}, #{birthDate}, #{email}, #{phoneNo}, 
+ 		#{address}, #{englishName}, #{gender}, #{photo,jdbcType=VARCHAR})
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="PersonalInfoDTO">
+	 	update personal_info_tb
+	 	set name = #{name}, birth_date = #{birthDate}, email = #{email}, phone_no = #{phoneNo}, 
+	 	address = #{address}, english_name = #{englishName}, gender = #{gender}
+	 	where member_id=#{memberID}
+ 	</update>
+ 	
+  	<update id="updatePhoto" parameterType="map">
+ 		update personal_info_tb 
+ 		set photo = #{url, jdbcType=VARCHAR}
+ 		where member_id = #{memberID}
+ 	</update> 
+ 	
+ 	<delete id="delete" parameterType="string">
+ 		delete personal_info_tb 
+ 		where member_id = #{memberID}
+ 	</delete>
+ 	
+ 	<select id="selectById" resultMap="personalMap" parameterType="string">
+ 		select * from personal_info_tb
+ 		where member_id = #{memberID}
+ 	</select>
+ 	
+ 	<select id="selectPhoto" resultMap="personalMap" parameterType="string">
+ 		select photo from personal_info_tb
+ 		where member_id = #{memberID}
+ 	</select>
+ </mapper>

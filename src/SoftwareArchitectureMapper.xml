@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="SoftwareArchitectureMapper">
+  	
+ 	<insert id="insertSoftwareArchitecture" parameterType="com.omazing.portfolio.dto.SoftwareArchitectureDTO">
+ 		insert into software_architecture_tb 
+ 		values(software_architecture_seq.NEXTVAL, #{project_no}, #{usecase_file},#{usecase_count},#{diagram_image})
+ 	</insert>
+ 	
+ 	<select id="searchSoftwareArchitecture" resultType="com.omazing.portfolio.dto.SoftwareArchitectureDTO">
+ 		select * from software_architecture_tb where project_no = #{project_no}
+ 	</select>
+ 	
+ 	<select id="searchSoftwareArchitectureAtDiagram" resultType="java.lang.String">
+ 		select diagram_image from software_architecture_tb where register_no = #{register_no}
+ 	</select>
+ 	
+ 	<update id="updateSoftwareArchitectureAtDiagram" parameterType="com.omazing.portfolio.dto.SoftwareArchitectureDTO" >
+ 		update software_architecture_tb set usecase_file=#{usecase_file}, usecase_count=#{usecase_count},
+ 		diagram_image=#{diagram_image} where register_no=#{register_no}
+	</update>
+	
+	<delete id="deleteSoftwareArchitecture" >
+ 		delete software_architecture_tb where register_no=#{register_no}
+	</delete>
+	
+	
+ </mapper>

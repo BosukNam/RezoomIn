@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="UseSkillMapper">
+  	<insert id="insertUseSkill" parameterType="com.omazing.portfolio.dto.UseSkillDTO">
+  		insert into useskill_tb values(#{register_no}, #{project_no})
+  	</insert>
+  	
+  	
+  	<select id="selectUseSkill" resultType="com.omazing.portfolio.dto.UseSkillDTO">
+  		select * from  useskill_tb where project_no = #{projectNo}
+  	</select>
+  	
+  	
+  	<select id="selectUseSkillName" resultType="com.omazing.portfolio.dto.UseSkillDTO">
+  		select ps.name, ps.register_no 
+  		from  useskill_tb us
+  		inner join programming_skill_tb ps
+  		on ps.register_no = us.register_no
+  		where us.project_no = #{projectNo}
+  	</select>
+  	
+  	<delete id="deleteUseSkillByProjectNo">
+  		delete useskill_tb where project_no = #{projectNo}
+  	</delete>
+  	
+ </mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="MilitaryRankCategoryMapper">
+ 	<resultMap id="MilitaryRankCategory" type="MilitaryRankCategoryDTO">
+		<result property="rankCode" column="rank_code" ></result>
+	 	<result property="rank" column="rank" ></result>
+  	</resultMap>
+  	
+ 	<select id="selectByCode" resultMap="MilitaryRankCategory" parameterType="string">
+ 		select * from military_rank_category_tb
+ 		where rank_code = #{rankCode}
+ 	</select>
+ 	
+ 	<select id="selectAll" resultMap="MilitaryRankCategory">
+		select * from military_rank_category_tb
+ 	</select>
+ </mapper>

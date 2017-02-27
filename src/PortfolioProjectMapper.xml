@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PortfolioProjectMapper">
+	<!-- return type 쓸 필요도 없고 써도 안된다. -->
+	<!-- parameter로 받은 객체의 id, pwd, name을 get 하겠다는 의미 -->
+	<resultMap type="com.omazing.portfolio.bean.ProjectDateBean" id="projectDate">
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+	</resultMap>
+	<resultMap type="ProjectInfo" id="projectInfo">
+		<result column="register_no" property="registerNo"/>
+		<result column="member_id" property="memberId"/>
+		<result column="name" property="name"/>
+		<result column="project_intro_no" property="projectIntroNo"/>
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
+		<result column="people_no" property="peopleNo"/>
+		<result column="develop_tool_no" property="developToolNo"/>
+		<result column="role_and_task_no" property="roleAndTaskNo"/>
+		<result column="use_tech_language_no" property="useTechLanguageNo"/>
+		<result column="library_no" property="libraryNo"/>
+		<result column="system_architecture_no" property="systemArchitectureNo"/>
+		<result column="software_architecture_no" property="softwareArchitectureNo"/>
+		<result column="user_define_content_no" property="userDefineContentNo"/>
+	</resultMap>
+	<resultMap type="ProgramContent"
+		id="programContent">
+		<result column="content" property="content" />
+		<result column="register_no" property="registerNo" />
+		<result column="project_no" property="projectNo" />
+		<result column="program_content_image" property="programContentImage" />
+		<result column="chart_no" property="chartNo" />
+		<association property="category"
+			javaType="com.omazing.portfolio.dto.ProgramContentCategoryDTO">
+			<result column="code" property="code" />
+			<result column="content_category" property="contentCategory" />
+		</association>
+	</resultMap>
+
+	<resultMap type="Chart" id="chart">
+		<result column="register_no" property="registerNo"/>
+		<result column="program_content_no" property="programContentNo"/>
+		<result column="chart_path" property="chartPath"/>
+		<association property="chartType" javaType="com.omazing.portfolio.dto.ChartCategoryDTO">
+			<result column="code" property="code"/>
+			<result column="category" property="category"/>
+		</association>
+	</resultMap>
+	<resultMap type="RoleAndTask"
+		id="roleAndTask">
+		<result column="register_no" property="registerNo"/>
+		<result column="project_no" property="projectNo"/>
+		<result column="role" property="role"/>
+		<result column="task" property="task"/>
+	</resultMap>
+	<insert id="insertProgramContent" parameterType="ProgramContent">
+		insert into program_content_tb
+		values (program_content_seq.nextval, #{projectNo},
+		#{programContentImage}, #{content}, #{chartNo}, #{category.code})
+	</insert>
+	<insert id="insertRoleAndTask" parameterType="RoleAndTask">
+		insert into role_and_task_tb
+		values (role_and_task_seq.nextval, #{projectNo}, #{role}, #{task})
+	</insert>
+	<insert id="insertChart" parameterType="Chart">
+		insert into chart_tb
+		values (chart_seq.nextval, #{programContentNo}, #{chartType.code},
+		#{chartPath})
+	</insert>
+	<delete id="deleteProgramContentByRegisterNo" parameterType="Integer">
+		delete from program_content_tb
+		where register_no = #{register_no}
+	</delete>
+	<delete id="deleteProgramContentByProjectNo" parameterType="Integer">
+		delete from program_content_tb
+		where project_no = #{project_no}
+	</delete>
+	<delete id="deleteRoleAndTaskByRegisterNo" parameterType="Integer">
+		delete from role_and_task_tb
+		where register_no=#{register_no}
+	</delete>
+	<delete id="deleteRoleAndTaskByProjectNo" parameterType="Integer">
+		delete from role_and_task_tb
+		where project_no=#{project_no}
+	</delete>
+	<delete id="deleteChartByProgramContentNo" parameterType="Integer">
+		delete from chart_tb
+		where program_content_no=#{program_content_no}
+	</delete>
+	<delete id="deleteChartByRegisterNo" parameterType="Integer">
+		delete from chart_tb
+		where register_no=#{register_no}
+	</delete>
+	<delete id="deleteLibraryByRegisterNo" parameterType="Integer">
+		delete from library_tb
+		where register_no=#{register_no}
+	</delete>
+	<delete id="deleteLibraryByProjectNo" parameterType="Integer">
+		delete from library_tb
+		where project_no=#{project_no}
+	</delete>
+	<update id="updateLibraryByRegisterNo" parameterType="Library">
+		update library_tb
+		set content=#{content}, library_image=#{imagePath}
+		where register_no=#{registerNo}
+	</update>
+	<update id="updateProgramImageAndContent" parameterType="map">
+		update program_content_tb
+		set program_content_image=#{programContentImage}, content=#{content}
+		where register_no=#{registerNo}
+	</update>
+	<update id="updateProgramContentByRegisterNo" parameterType="ProgramContent">
+		update program_content_tb
+		set program_content_image=#{programContentImage}, content=#{content},
+			chart_no=#{chartNo},category=#{category.code}
+		where register_no=#{registerNo} and project_no=#{projectNo}
+	</update>
+	<update id="updateRoleAndTaskByRegisterNo" parameterType="RoleAndTask">
+		update role_and_task_tb
+		set role=#{role}, task=#{task}
+		where register_no=#{registerNo}
+	</update>
+	<update id="updateChartByProgramContentNo" parameterType="Chart">
+		update chart_tb
+		set chart_type=#{chartType.code} and chart_path=#{chartPath}
+		where register_no=${registerNo} and program_content_no=#{programContentNo}
+	</update>
+	<update id="updateProjectName" parameterType="map">
+		update project_info_tb
+		set name=#{name}
+		where register_no=#{register_no}
+	</update>
+	<update id="updateProjectIntroNo" parameterType="map">
+		update project_info_tb
+		set project_intro_no=#{program_content_no}
+		where register_no=#{register_no}
+	</update>
+	<update id="updateProjectDate" parameterType="map">
+		update project_info_tb
+		set start_date=#{start_date}, end_date=#{end_date}
+		where register_no=#{register_no}
+	</update>
+	<update id="updateProjectPoepleNo" parameterType="map">
+		update project_info_tb
+		set people_no=#{people_no}
+		where register_no=#{register_no}
+	</update>
+	<update id="updateRoleAndTaskNo" parameterType="map">
+		update project_info_tb
+		set role_and_task_no=#{role_and_task_no}
+		where register_no=#{register_no}
+	</update>
+	<update id="updateUserDefineContentNo">
+		update project_info_tb
+		set user_define_content_no=#{program_content_no}
+	</update>
+	<select id="selectProjectInfoByMemberId" parameterType="string" resultMap="projectInfo">
+		select register_no, member_id, name, project_intro_no, start_date,
+				end_date, people_no, develop_tool_no, role_and_task_no, use_tech_language_no,
+				library_no, system_architecture_no, software_architecture_no, user_define_content_no
+		from project_info_tb
+		where member_id=#{member_id}
+	</select>
+	<select id="selectProjectInfoByRegisterNo" parameterType="Integer" resultMap="projectInfo">
+		select register_no, member_id, name, project_intro_no, start_date,
+				end_date, people_no, develop_tool_no, role_and_task_no, use_tech_language_no,
+				library_no, system_architecture_no, software_architecture_no, user_define_content_no
+		from project_info_tb
+		where register_id=#{register_id}
+	</select>
+	<select id="selectProjectDate" parameterType="Integer" resultMap="projectDate">
+		select start_date, end_date
+		from project_info_tb
+		where register_no=#{register_no}
+	</select>
+	<select id="selectProjectPeopleNo" parameterType="Integer"
+		resultType="Integer">
+		select people_no
+		from project_info_tb
+		where register_no=#{register_no}
+	</select>
+	<select id="selectProgramContentByRegisterNo" parameterType="Integer"
+		resultMap="programContent">
+		select register_no, project_no, program_content_image, chart_no, category, content_category, code, content
+		from program_content_tb pc
+		join program_content_category_tb pcc
+		on pc.category=pcc.code
+		where register_no=#{register_no}
+	</select>
+	<select id="selectProgramContentByProjectNo" parameterType="Integer" resultMap="programContent">
+		select register_no, project_no, program_content_image, chart_no, category, content_category, code, content
+		from program_content_tb pc
+		join program_content_category_tb pcc
+		on pc.category=pcc.code
+		where project_no=#{project_no}
+	</select>
+	<select id="selectProgramContentByCategory" parameterType="map" resultMap="programContent">
+		select register_no, project_no, program_content_image, chart_no, category, content_category, code, content
+		from program_content_tb pc
+		join program_content_category_tb pcc
+		on pc.category=pcc.code
+		where project_no=#{project_no} and category=#{category}
+	</select>
+	
+	<select id="selectRoleAndTaskByRegisterNo" parameterType="Integer" resultMap="roleAndTask">
+		select register_no, project_no, role, task
+		from role_and_task_tb
+		where register_no=#{register_no}
+	</select>
+	<select id="selectRoleAndTaskByProjectNo" parameterType="Integer"
+		resultMap="roleAndTask">
+		select register_no, project_no, role, task
+		from role_and_task_tb
+		where project_no=#{project_no}
+	</select>
+	<select id="selectChartByRegisterNo" parameterType="Integer" resultMap="chart">
+		select register_no, program_content_no, chart_type, chart_path, category, code
+		from chart_tb c
+		join chart_category_tb cc
+		on c.chart_type=cc.code
+		where register_no=#{register_no}
+	</select>
+	<select id="selectChartByProgramContentNo" parameterType="Integer" resultMap="chart">
+		select register_no, program_content_no, chart_type, chart_path, category, code
+		from chart_tb c
+		join chart_category_tb cc
+		on c.chart_type=cc.code
+		where program_content_no=#{program_content_no}
+	</select>
+	<select id="selectLatestRegisterNoOfProgramContent" parameterType="map" resultType="Integer">
+ 	 	select register_no
+ 	 	from program_content_tb
+        where project_no=#{project_no} and categroy=#{category}
+        order by register_no desc
+    </select>
+    <select id="selectLatestRegisterNoOfRoleAndTask" parameterType="Integer" resultType="Integer">
+ 	 	select top(1) register_no
+ 	 	from role_and_task_tb
+        where project_no=#{projectNo}
+        order by register_no desc
+    </select>
+    <select id="selectLatestRegisterNoOfChart" parameterType="Integer" resultType="Integer">
+ 	 	select register_no
+ 	 	from chart_tb
+        where program_content_no=#{program_content_no}
+        order by register_no desc
+    </select>
+    <select id="selectLatestRegisterNoOfLibrary" parameterType="Integer" resultType="Integer">
+    	select register_no
+    	from library_tb
+    	where project_no=#{project_no}
+    	order by register_no desc
+    </select>
+</mapper>

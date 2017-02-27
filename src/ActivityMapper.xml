@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ActivityMapper">
+	<resultMap id="ActivityMap" type="com.omazing.resume.dto.ActivityDTO">
+		<result column="start_date" property="startDate" />
+		<result column="end_date" property="endDate" />
+		<result column="content" property="content" />
+		<result column="register_no" property="registerNo" />
+		<result column="member_id" property="memberID" />
+		<association property="category" javaType="com.omazing.resume.dto.ActivityCategoryDTO" >
+	 	 	<result property="categoryCode" column="category_code"></result>
+	 		<result property="category" column="category"></result>
+	 	</association>
+	</resultMap>
+  <!-- myBatis는 자료형 안에 들어가는 타입을 써줘야한다 -->
+    <insert id="insertActivity" parameterType="com.omazing.resume.dto.ActivityDTO">
+  	insert into activity_tb(register_no, category_code, 
+  		 start_date, end_date, content, member_id) 
+  	values
+  	(activity_seq.nextval, #{category.categoryCode}, 
+  	 	#{startDate}, #{endDate}, #{content}, #{memberID})
+  </insert>
+  <update id="updateActivity" parameterType="com.omazing.resume.dto.ActivityDTO">
+  	update activity_tb set category_code= #{category.categoryCode}, 
+		start_date = #{startDate}, end_date = #{endDate}, content = #{content}
+		where register_no= #{registerNo} and member_id= #{memberID}
+  </update>
+  <delete id="deleteActivity" parameterType="Map">
+  	delete activity_tb where member_id= #{id} and register_no= #{registerNo}
+  </delete>
+  <select id="nextActivityNo" resultType="int">
+	SELECT NVL(MAX(register_no)-1,0)
+	FROM activity_tb
+</select>
+  <select id="selectActivityAll" resultMap="ActivityMap" parameterType="String">
+     select av.register_no, av.category_code, ac.category, 
+     			av.start_date, av.end_date,
+				av.content, av.member_id from activity_tb av
+				join activity_category_tb ac
+				on av.category_code = ac.category_code
+				join private_member_tb pm
+				on av.member_id = pm.member_id
+				where pm.member_id = #{memberID}
+  </select>
+</mapper>

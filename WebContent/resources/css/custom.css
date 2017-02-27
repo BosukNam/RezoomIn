@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+.page-header {
+  padding-bottom: 9px;
+  margin: 5px 0 20px;
+  border-bottom: 1px solid #eee;
+  background-color: gray;
+  color: white;
+}
+.nav > li > a{
+	text-align: center;
+}
+.caption{
+	text-align: center;
+}
+#language-plus, #develop-plus{
+	float:right;
+    font-size: 25px;
+    color:maroon;
+}
+#language-plus:hover, #develop-plus:hover{
+	text-align:center;
+    font-size: 25px;
+    color:highlight;
+}
+.user-btn{
+	display:block;                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+	float:right;
+}
+.panel-heading{
+	background-color: #b6dabe;
+}
+.chart-data, .chart-category{
+	margin:0;
+	padding:0;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>학부게시판</title>
+<link href="../bootstrap-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<!-- Content 시작 -->
+	<div class="container">
+		<div class="col-md-12">
+		<h1>새 글 작성</h1>
+		<hr>
+		</div>
+		<form action="/1221_noticeBoard/update.do" id="formData" method="post">
+			<input type="hidden" name="flag" value="new">
+			<div class="form-group">
+				<label for="inputName">작성자명</label> 
+				<input type="text" class="form-control" id="inputName" name="inputName" placeholder="ex)학부생">
+			</div>
+			<div class="form-group">
+				<label for="inputPwd">비밀번호</label> <input type="password"
+					class="form-control" id="inputPwd" name="inputPwd" placeholder="비밀번호">
+			</div>
+			<div class="form-group">
+				<label for="inputTitle">제목</label> 
+				<input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="제목">
+			</div>
+			<div class="form-group">
+				<label for="inputContent">내용</label>
+				<textarea class="form-control" rows="3" placeholder="내용을 입력해주세요." id="inputContent" name="inputContent"></textarea>
+			</div>
+			<input class="btn btn-primary" type="submit" value="Submit">
+		</form>
+			<div class="btn btn-default" id="updateBtn">등록</div>
+			<div class="btn btn-default" id="cancleBtn">취소</div>
+	</div>
+	<!-- Content 끝 -->
+
+	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="../bootstrap-dist/js/bootstrap.min.js"></script>
+	<script src="../scripts/nullcheck.js"></script>
+	<script src="../scripts/limitedLetter.js"></script>
+
+	<script>
+		$(function() {
+			$('#cancleBtn').click(function() {
+				location.replace("/1221_noticeBoard/main.do");
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="SchoolTotalGradeCategoryMapper">
+ 
+ 	<resultMap id="schoolTotalGradeCategory" type="SchoolTotalGradeCategoryDTO">
+		<result property="totalGradeCode" column="total_grade_code" ></result>
+	 	<result property="totalGrade" column="total_grade" ></result>
+  	</resultMap>
+  
+ 	<select id="selectByCode" resultMap="schoolTotalGradeCategory" parameterType="string">
+ 		select * from school_totalgrade_category_tb
+ 		where total_grade_code = #{totalGradeCode}
+ 	</select>
+ 	
+ 	<select id="selectAll" resultMap="schoolTotalGradeCategory">
+		select * from school_totalgrade_category_tb
+ 	</select>
+ </mapper>

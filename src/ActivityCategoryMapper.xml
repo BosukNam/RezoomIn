@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ActivityCategoryMapper">
+	<resultMap id="ActivityCategoryMap" type="com.omazing.resume.dto.ActivityCategoryDTO">
+		<result column="category_code" property="categoryCode" />
+		<result column="category" property="category" />
+	</resultMap>
+  <!-- myBatis는 자료형 안에 들어가는 타입을 써줘야한다 -->
+  <select id="selectActivityCategoryAll" resultMap="ActivityCategoryMap">
+     select * from activity_category_tb
+  </select>
+</mapper>

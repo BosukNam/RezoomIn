@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="ExperienceReportMapper">
+<!--    autoMapping을 설정해 준경우에는 column과 property 값이 동일할 떄 사용하면 좋다 -->
+
+	<insert id="insertExperienceReport" parameterType="ExperienceReport">
+ 	 	insert into experience_report_tb
+  		values(#{member_id}, experience_report_seq.NEXTVAL, #{title}, #{content})
+  	</insert>
+  	
+  	<update id="updateExperienceReport" parameterType="ExperienceReport">
+		update experiencereport_tb set TITLE=#{title}, CONTENT=#{content}
+		  where MEMBER_ID=#{member_id} and REGISTER_NO=#{register_no}
+ 	</update>
+ 	<update id="updateExperienceReportTitle" parameterType="ExperienceReport">
+		update experiencereport_tb set TITLE=#{title}
+		  where MEMBER_ID=#{member_id} and REGISTER_NO=#{register_no}
+ 	</update>
+ 	<update id="updateExperienceReportContent" parameterType="ExperienceReport">
+		update experiencereport_tb set CONTENT=#{content}
+		  where MEMBER_ID=#{member_id} and REGISTER_NO=#{register_no}
+ 	</update>
+ 	
+ 	<delete id="deleteExperienceReport" parameterType="ExperienceReport">
+		delete from experience_report_tb where member_id=#{member_id}
+		 and REGISTER_NO=#{register_no}
+ 	</delete>
+ 	<delete id="deleteExperienceReportAll" parameterType="ExperienceReport">
+		delete from experience_report_tb where member_id=#{member_id}
+ 	</delete>
+ 	
+ 	<select id="selectExperienceReport" resultType="ExperienceReport">
+		select * from experience_report_tb where member_id=#{member_id}
+		 and REGISTER_NO=#{register_no}
+ 	</select>
+ 	<select id="selectExperienceReportAll" resultType="ExperienceReport">
+		select * from experience_report_tb where member_id=#{member_id}
+ 	</select>
+	<select id="selectExperienceReportSeq" resultType="java.lang.Integer">
+		 SELECT NVL(MAX(register_no),0) from experience_report_tb
+ 	</select>
+ 	
+ </mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		 <typeAlias alias="Library" type="com.omazing.portfolio.dto.LibraryDTO"/>
+	 	 <typeAlias alias="PrivateMemberDTO" type="com.omazing.resume.dto.PrivateMemberDTO"/>
+	 	 <typeAlias alias="ProjectInfo" type="com.omazing.portfolio.dto.ProjectInfoDTO"/>
+	 	 <typeAlias alias="PersonalInfoDTO" type="com.omazing.resume.dto.PersonalInfoDTO"/>
+	 	 <typeAlias alias="UnusualCategoryDTO" type="com.omazing.resume.dto.UnusualCategoryDTO"/>
+	 	 <typeAlias alias="UnusualDTO" type="com.omazing.resume.dto.UnusualDTO"/>
+	 	 <typeAlias alias="MilitaryDTO" type="com.omazing.resume.dto.MilitaryDTO"/>
+	 	 <typeAlias alias="MilitaryCategoryDTO" type="com.omazing.resume.dto.MilitaryCategoryDTO"/>
+	 	 <typeAlias alias="MilitaryRankCategoryDTO" type="com.omazing.resume.dto.MilitaryRankCategoryDTO"/>
+	 	 <typeAlias alias="SchoolDTO" type="com.omazing.resume.dto.SchoolDTO"/>
+	 	 <typeAlias alias="GraduatedSchoolDTO" type="com.omazing.resume.dto.GraduatedSchoolDTO"/>
+	 	 <typeAlias alias="SchoolCategoryDTO" type="com.omazing.resume.dto.SchoolCategoryDTO"/>
+	 	 <typeAlias alias="SchoolTrackCategoryDTO" type="com.omazing.resume.dto.SchoolTrackCategoryDTO"/>
+	 	 <typeAlias alias="SchoolDegreeCategoryDTO" type="com.omazing.resume.dto.SchoolDegreeCategoryDTO"/>
+	 	 <typeAlias alias="SchoolTotalGradeCategoryDTO" type="com.omazing.resume.dto.SchoolTotalGradeCategoryDTO"/>
+	 	 <typeAlias alias="SchoolStateCategoryDTO" type="com.omazing.resume.dto.SchoolStateCategoryDTO"/>
+		 <typeAlias alias="ProgramContent" type="com.omazing.portfolio.dto.ProgramContentDTO"/>
+		 <typeAlias alias="RoleAndTask" type="com.omazing.portfolio.dto.RoleAndTaskDTO"/>
+		 <typeAlias alias="Chart" type="com.omazing.portfolio.dto.ChartDTO"/>
+		 <typeAlias alias="ExperienceReport" type="com.omazing.introduce.dto.ExperienceReportDTO"/>
+		 <typeAlias alias="IconURLCategory" type="com.omazing.introduce.dto.IconURLCategoryDTO"/>
+		 <typeAlias alias="PersonalBiography" type="com.omazing.introduce.dto.PersonalBiographyDTO"/>
+		 <typeAlias alias="PersonalReport" type="com.omazing.introduce.dto.PersonalReportDTO"/>
+		 <typeAlias alias="PersonalSpecialty" type="com.omazing.introduce.dto.PersonalSpecialtyDTO"/>
+		 <typeAlias alias="ExperienceReport" type="com.omazing.introduce.dto.ExperienceReportDTO"/>
+		 <typeAlias alias="IconCategory" type="com.omazing.introduce.dto.IconURLCategoryDTO"/>
+		 <typeAlias alias="ProgrammingSkill" type="com.omazing.portfolio.dto.ProgrammingSkillDTO"/>
+	 	<typeAlias alias="PortfolioDTO" type="com.omazing.portfolio.dto.PortfolioDTO"/>
+		<typeAlias alias="PrivateMemberDTO" type="com.omazing.resume.dto.PrivateMemberDTO"/>
+		<typeAlias alias="CompanyMemberDTO" type="com.omazing.resume.dto.CompanyMemberDTO"/>
+  	</typeAliases>
+
+  <mappers>
+ 
+    <mapper resource="PrivateMemberMapper.xml"/>
+    <mapper resource="PersonalInfoMapper.xml"/>
+    <mapper resource="UnusualMapper.xml"/>
+    <mapper resource="UnusualCategoryMapper.xml"/>
+    <mapper resource="MilitaryMapper.xml"/>
+    <mapper resource="MilitaryCategoryMapper.xml"/>
+    <mapper resource="MilitaryRankCategoryMapper.xml"/>
+    <mapper resource="SchoolMapper.xml"/>
+    <mapper resource="SchoolCategoryMapper.xml"/>
+    <mapper resource="SchoolTrackCategoryMapper.xml"/>
+    <mapper resource="SchoolDegreeCategoryMapper.xml"/>
+    <mapper resource="SchoolTotalGradeCategoryMapper.xml"/>
+    <mapper resource="SchoolStateCategoryMapper.xml"/>
+
+    <mapper resource="PortfolioProfileMapper.xml"/>
+    <mapper resource="PortfolioProjectMapper.xml"/>
+    <mapper resource="SkillRankMapper.xml"/>
+    <mapper resource="SkillNameMapper.xml"/>
+  	<mapper resource="PersonalBiographyMapper.xml"/>
+  	<mapper resource="PersonalReportMapper.xml"/>
+  	<mapper resource="ExperienceReportMapper.xml"/>
+  	<mapper resource="IconCategoryMapper.xml"/>
+  	<mapper resource="CareerMapper.xml"/>
+    <mapper resource="CertificateMapper.xml"/>
+    <mapper resource="LanguageExamMapper.xml"/>
+    <mapper resource="UseSkillMapper.xml"/>
+    <mapper resource="SystemArchitectureMapper.xml"/>
+    <mapper resource="AwardCategoryMapper.xml"/>
+    <mapper resource="AwardFieldMapper.xml"/>
+    <mapper resource="ActivityCategoryMapper.xml"/>
+    <mapper resource="SoftwareArchitectureMapper.xml"/>
+    <mapper resource="AwardMapper.xml"/>
+    <mapper resource="ActivityMapper.xml"/>
+    <mapper resource="PrivateMemberMapper.xml"/>
+    <mapper resource="CompanyMemberMapper.xml"/>
+  </mappers>
+</configuration>

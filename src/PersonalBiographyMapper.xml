@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="PersonalBiographyMapper">
+<!--    autoMapping을 설정해 준경우에는 column과 property 값이 동일할 떄 사용하면 좋다 -->
+
+	<insert id="insertPersonalBiograpyOnlyID" parameterType="PersonalBiography">
+ 	 	insert into personal_history_tb
+  		values(#{memberID}, null, null, null, null, null)
+  	</insert>
+ 	<insert id="insertPersonalBiograpy" parameterType="PersonalBiography">
+ 	 	insert into personal_history_tb
+  		values(#{memberID},#{childhood}, #{student}, #{univ}, #{company}, #{keyword})
+  	</insert>
+  	<insert id="insertPersonalSpecialty" parameterType="PersonalSpecialty">
+ 	 	insert into personal_specialty_tb
+  		values(#{member_id}, personal_specialty_seq.NEXTVAL, #{type}, #{name}, #{icon_code})
+  	</insert>
+  	
+  	<update id="updatePersonalChildhood" parameterType="PersonalBiography">
+ 		update personal_history_tb set CHILDHOOD=
+				#{childhood} where MEMBER_ID=#{memberID}
+ 	</update>
+ 	<update id="updatePersonalStudent" parameterType="PersonalBiography">
+ 		update personal_history_tb set STUDENT=
+				#{student} where MEMBER_ID=#{memberID}
+ 	</update>
+ 	<update id="updatePersonalUniv" parameterType="PersonalBiography">
+ 		update personal_history_tb set UNIV=
+				#{univ} where MEMBER_ID=#{memberID}
+ 	</update>
+ 	<update id="updatePersonalCompany" parameterType="PersonalBiography">
+ 		update personal_history_tb set COMPANY=
+				#{company} where MEMBER_ID=#{memberID} 	
+ 	</update>
+ 	<update id="updatePersonalKeyword" parameterType="PersonalBiography">
+ 		update personal_history_tb set KEYWORD=
+				#{keyword} where MEMBER_ID=#{memberID} 	
+ 	</update>
+ 	<update id="updatePersonalBiograpy" parameterType="PersonalBiography">
+ 		update personal_history_tb set CHILDHOOD=#{childhood},
+ 		 STUDENT=#{student}, UNIV=#{univ}, COMPANY=#{company},
+ 		 KEYWORD=#{keyword} where MEMBER_ID=#{memberID}; 	
+ 	</update>
+ 	<update id="updatePersonalSpecialtyName" parameterType="PersonalSpecialty">
+		update personal_specialty_tb set NAME=#{name} 
+				where MEMBER_ID=#{member_id} and 
+				REGISTER_NO=${register_no}
+ 	</update>
+ 	<update id="updatePersonalSpecialtyIconCode" parameterType="PersonalSpecialty">
+		update personal_specialty_tb set ICON_CODE=#{icon_code} 
+				where MEMBER_ID=#{member_id} and 
+				REGISTER_NO=${register_no}
+ 	</update>
+ 	<update id="updatePersonalSpecialty" parameterType="PersonalSpecialty">
+		update personal_specialty_tb set NAME=#{name}, ICON_CODE=#{icon_code}
+				where MEMBER_ID=#{member_id} and 
+				REGISTER_NO=${register_no}
+ 	</update>
+ 	
+ 	<delete id="deletePersonalBiograpy" parameterType="PersonalBiography">
+		delete from personal_history_tb where member_id=#{member_id}
+ 	</delete>
+ 	<delete id="deletePersonalSpecialty" parameterType="PersonalSpecialty">
+		delete from personal_specialty_tb where member_id=#{member_id}
+		 and REGISTER_NO=#{register_no}
+ 	</delete>
+ 	<delete id="deletePersonalHobbyAll" parameterType="PersonalSpecialty">
+		delete from personal_specialty_tb where member_id=#{member_id}
+		 and TYPE='hobby'
+ 	</delete>
+ 	<delete id="deletePersonalSkillAll" parameterType="PersonalSpecialty">
+		delete from personal_specialty_tb where member_id=#{member_id}
+		 and TYPE='skill'
+ 	</delete>
+ 	<delete id="deletePersonalSpecialtyAll" parameterType="PersonalSpecialty">
+		delete from personal_specialty_tb where member_id=#{member_id}
+ 	</delete>
+ 	
+ 	<select id="selectPersonalBiograpy" resultType="PersonalBiography">
+		select * from personal_history_tb where member_id=#{member_id}
+ 	</select>
+ 	<select id="selectPersonalSpecialtyAll" resultType="PersonalSpecialty">
+		select * from personal_specialty_tb where member_id = #{member_id}
+ 	</select>
+ 	<select id="selectPersonalHobbyAll" resultType="PersonalSpecialty">
+		select * from personal_specialty_tb where member_id = #{member_id} and TYPE='hobby'
+ 	</select>
+ 	<select id="selectPersonalSkillAll" resultType="PersonalSpecialty">
+		select * from personal_specialty_tb where member_id = #{member_id} and TYPE='skill'
+ 	</select>
+ 	<select id="selectPersonalSpecialty" resultType="PersonalSpecialty">
+		select * from personal_specialty_tb where member_id=#{member_id}
+		 and register_no=#{register_no}
+ 	</select>
+ 	<select id="selectPersonalSpecialtySeq" resultType="java.lang.Integer">
+		 SELECT NVL(MAX(register_no),0) from personal_specialty_tb
+ 	</select>
+
+ </mapper>

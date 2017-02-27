@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="PortfolioProfileMapper">
+<!--    autoMapping을 설정해 준경우에는 column과 property 값이 동일할 떄 사용하면 좋다 -->
+	<!-- <resultMap id ="orderMap" type="vo.OrderInfo">
+		<result column="info_no" property="info_no"/>
+		<result column="info_date" property="info_date"/>
+		<association property="c" javaType="Customer" autoMapping="true">
+			<result column="info_id" property="id"/> -->
+<!-- 			<result column="name" property="name"/> -->
+		<!-- </association>
+		<collection property="lines" ofType="vo.OrderLine" autoMapping="true">
+			<result column="info_no" property="info_no"/>
+			<result column="line_no" property="line_no"/>
+			<result column="line_quantity" property="line_quantity"/>
+			product association
+			<association property="p" javaType="vo.Product" autoMapping="true">
+				<result column="prod_name" property="prod_name"/>
+				<result column="prod_price" property="prod_price"/>
+				<result column="line_prod_no" property="prod_no"/>
+			</association>	
+		</collection>
+	</resultMap> -->
+	 <resultMap id="searchSkillMap" type="com.omazing.company.SearchMemberVO" autoMapping="true">
+		 	<result property="skillName" column="skill_name" ></result>
+		 	<result property="rank" column="skill_rank_name" ></result>
+	  </resultMap>
+	  
+ 	<insert id="insertProgrammingSkill" parameterType="ProgrammingSkill">
+ 	 	insert into programming_skill_tb
+  		values(programming_skill_seq.NEXTVAL, #{memberID}, #{name}, #{rank}, #{type}, #{field})
+  	</insert>
+
+  	<select id="selectProgrammingSkillByID" resultType="PortfolioDTO">
+  		select register_no, member_id, name, skill_rank_name, programming_type_name, field, skill_name_image
+		from programming_skill_tb ps 
+		inner join skill_rank_tb sr 
+		on ps.rank = sr.skill_rank_code 
+		inner join skill_name_tb sn 
+		on ps.name = sn.skill_name 
+		inner join programming_skill_type_tb pt 
+		on sn.skill_name_code = pt.programming_type_code 
+		where member_id = #{memberID}
+  	</select>
+  	
+  	<!-- <select id="selectProgrammingSkillByField" resultType="ProgrammingSkill">
+  		select register_no, member_id, name, skill_rank_name, programming_type_name, field, skill_name_image
+		from programming_skill_tb ps 
+		inner join skill_rank_tb sr 
+		on ps.rank = sr.skill_rank_code 
+		inner join skill_name_tb sn 
+		on ps.name = sn.skill_name 
+		inner join programming_skill_type_tb pt 
+		on sn.skill_name_code = pt.programming_type_code 
+		where member_id = #{memberID} and field = #{field}
+  	</select> -->
+  	
+  	<select id="selectProgrammingSkillByField" resultType="ProgrammingSkill">
+  		select register_no, name from programming_skill_tb
+  		where member_id = #{memberID} and field = #{field}
+  	</select>
+  	<select id="selectProgrammingSkillByName" resultType="ProgrammingSkill">
+  		select * from programming_skill_tb
+		where member_id = #{memberID} and name = #{name}
+  	</select>
+  	<select id="selectProgrammingSkills" resultMap="searchSkillMap">
+  		select member_id, pm.name, email, ps.name, skill_rank_name
+	      from programming_skill_tb ps 
+	      inner join skill_rank_tb sr 
+	      on ps.rank = sr.skill_rank_code 
+	      inner join skill_name_tb sn 
+	      on ps.name = sn.skill_name
+	      inner join private_member_tb pm
+	      on ps.member_id = pm.member_id 
+	      where ps.name = #{name} 
+  	</select>
+  	<select id="selectProgrammingSkillByRegisterNo" resultType="PortfolioDTO">
+  		select register_no, member_id, name, skill_rank_name, programming_type_name, field, skill_name_image
+		from programming_skill_tb ps 
+		inner join skill_rank_tb sr 
+		on ps.rank = sr.skill_rank_code 
+		inner join skill_name_tb sn 
+		on ps.name = sn.skill_name 
+		inner join programming_skill_type_tb pt 
+		on sn.skill_name_code = pt.programming_type_code 
+		where register_no = #{register_no}
+  	</select>
+  	<update id="updateProgrammingSkillUnit" parameterType="ProgrammingSkill">
+  		update programming_skill_tb set name = #{name}
+  		,rank = #{rank} ,type = #{type},field = #{field}
+  		where register_no= #{register_no}
+  	</update>
+  	<delete id="deleteProgrammingSkill">
+  		delete programming_skill_tb where register_no= #{register_no}
+  	</delete>
+ </mapper>

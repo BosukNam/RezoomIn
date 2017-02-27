@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AwardFieldMapper">
+	<resultMap id="AwardFieldMap" type="com.omazing.resume.dto.AwardFieldDTO">
+		<result column="field_code" property="fieldCode" />
+		<result column="field" property="field" />
+		<result column="category_code" property="categoryCode" />
+	</resultMap>
+  <!-- myBatis는 자료형 안에 들어가는 타입을 써줘야한다 -->
+  <select id="selectAwardFieldAll" resultMap="AwardFieldMap">
+     select af.field_code, af.field, af.category_code
+				from award_field_tb af
+  </select>
+</mapper>

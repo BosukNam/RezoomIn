@@ -1,0 +1,110 @@
+<style>
+/*  버튼 효과  */
+.color-pattern-1 {
+    background: #fff;
+}
+/* General button style (reset) */
+.button_style {
+    border: none;
+    color: #000;
+    background-color :#fff; /* beforeColor */
+    cursor: pointer;
+    padding: 20px 60px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size : 1.2em;
+    outline: none;
+    position: relative;
+
+    transition: all 0.5s;
+}
+.button_style:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+
+    transition: all 0.5s;
+}
+/* Button 1 */
+.button-1 {
+    border: 3px solid #fff; /* beforeColor */
+    color: #000;
+}
+
+/* Button 1a */
+.button-1a:hover,
+.button-1a:active {
+    color: #fff;
+    background: #ec1b5a;	/* AfterColor */
+    border : 3px solid #ec1b5a; /* AfterColor */
+}
+/* Button 2 */
+.button-2 {
+    border: 3px solid #fff; /* beforeColor */
+    color: #000;
+}
+
+/* Button 2a */
+.button-2a:hover,
+.button-2a:active {
+    color: #fff;
+    background: #79aefe;	/* AfterColor */
+    border : 3px solid #79aefe; /* AfterColor */
+}
+/* Button 3 */
+.button-3 {
+    border: 3px solid #fff; /* beforeColor */
+    color: #000;
+}
+
+/* Button 3a */
+.button-3a:hover,
+.button-3a:active {
+    color: #fff;
+    background: #314190;	/* AfterColor */
+    border : 3px solid #314190; /* AfterColor */
+}
+
+/* a 태그 밑줄 제거 */
+.color-pattern-1>div>a{
+	text-decoration:none;
+}
+</style>
+    <section class="color-pattern-1 sidebar col-md-2">
+        <div align="center">
+            <a href="#" class="button button_style button-1 button-1a" 
+            id="profile">프로필</a>
+            <br><br>
+            <a href="#" class="button button_style button-2 button-2a" 
+            id="project">프로젝트</a>
+            <br><br>
+            <a href="#" class="button button_style button-3 button-3a" 
+            id="preview">미리보기</a>
+        </div>
+    </section>
+<!-- 			<div class="col-md-2 sidebar" id="content-main">
+				<br><br><br>
+				<ul class="nav">
+	            	<li><a href="#" id="profile">프로필</a></li>
+	            	<!-- value=project registerNo 
+	            	<li><a href="#" id="project" value="1">프로젝트</a></li>
+	            	<li><a href="#" id="preview">미리보기</a></li>
+	    		</ul>
+	    	</div> -->
+	    	<script>
+	    		$(function(){
+	    			$('#profile').click(function(){
+	    				location.href="/TestFinalProject/initProgrammingSkill.do?";
+	    			})
+	    			$('#project').click(function(){
+	    				location.href="/TestFinalProject/resources/views/project.jsp";
+
+	    			})
+	    			$('#preview').click(function(){
+	    				location.href="/TestFinalProject/previewPortfolio.do";
+	    			})
+	    		})
+	    	</script>
+	    	

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="SchoolCategoryMapper">
+ 	<resultMap id="schoolCategory" type="SchoolCategoryDTO">
+		<result property="categoryCode" column="category_code" ></result>
+	 	<result property="category" column="category" ></result>
+  	</resultMap>
+  	
+ 	<select id="selectByCode" resultMap="schoolCategory" parameterType="string">
+ 		select * from school_category_tb
+ 		where category_code = #{categoryCode}
+ 	</select>
+ 	
+ 	<select id="selectAll" resultMap="schoolCategory">
+		select * from school_category_tb
+ 	</select>
+ </mapper>

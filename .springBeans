@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.3.201602250914-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>WebContent/WEB-INF/dispatcher-servlet.xml</config>
+		<config>WebContent/WEB-INF/applicationContext.xml</config>
+		<config>src/SkillRankMapper.xml</config>
+		<config>src/SkillNameMapper.xml</config>
+		<config>src/UseSkillMapper.xml</config>
+		<config>src/SystemArchitectureMapper.xml</config>
+		<config>src/SoftwareArchitectureMapper.xml</config>
+		<config>src/TierCategoryMapper.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

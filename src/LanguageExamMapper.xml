@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LanguageExamMapper">
+	<resultMap id="LanguageExamMap" type="com.omazing.resume.dto.LanguageExamDTO">
+		<result column="exam_name" property="name" />
+		<result column="exam_date" property="date" />
+		<result column="grade" property="grade" />
+		<result column="register_no" property="registerNo" />
+		<result column="member_id" property="memberID" />
+	</resultMap>
+  <!-- myBatis는 자료형 안에 들어가는 타입을 써줘야한다 -->
+    <insert id="insertLanguageExam" parameterType="com.omazing.resume.dto.LanguageExamDTO">
+  	insert into language_exam_tb(register_no, exam_name, exam_date, grade, 
+  		 member_id) 
+  	values
+  	(language_exam_seq.nextval, #{name}, #{date}, #{grade}, #{memberID})
+  </insert>
+  <update id="updateLanguageExam" parameterType="com.omazing.resume.dto.LanguageExamDTO">
+  	update language_exam_tb set exam_name= #{name}, 
+		exam_date= #{date}, grade= #{grade}
+		where register_no= #{registerNo} and member_id= #{memberID}
+  </update>
+  <delete id="deleteLanguageExam" parameterType="Map">
+  	delete language_exam_tb where member_id= #{id} and register_no= #{registerNo}
+  </delete>
+  <select id="nextLanguageExamNo" resultType="int">
+	SELECT NVL(MAX(register_no)-1,0)
+	FROM language_exam_tb
+</select>
+  <select id="selectLanguageExamAll" resultMap="LanguageExamMap" parameterType="String">
+     select le.register_no, le.exam_name, le.exam_date,
+				le.grade, le.member_id
+				from language_exam_tb le
+				join private_member_tb pm
+				on le.member_id = pm.member_id
+				where pm.member_id = #{memberID}
+  </select>
+</mapper>

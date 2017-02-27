@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="SystemArchitectureMapper">
+ 
+ 	<insert id="insertSystemArchitecture" parameterType="com.omazing.portfolio.dto.SystemArchitectureDTO">
+ 		insert into system_architecture_tb 
+ 		values(system_architecture_seq.NEXTVAL, #{project_no}, #{tier_category}, 
+ 		#{client},#{server},#{middle_ware})
+ 	</insert>
+ 
+ 	<select id="searchSystemArchitecture" resultType="com.omazing.portfolio.dto.SystemArchitectureDTO">
+	 	select * from system_architecture_tb where project_no = #{project_no}
+ 	</select>
+ 	
+ 	<delete id="deleteSystemArchitecture">
+ 		delete system_architecture_tb
+ 		where project_no = #{project_no}
+ 	</delete>
+ 	<update id="updateSystemArchitecture" parameterType="com.omazing.portfolio.dto.SystemArchitectureDTO">
+ 		update system_architecture_tb 
+ 		set tier_category = #{tier_category}, 
+ 		client = #{client}, server = #{server}, middle_ware = #{middle_ware}
+  		where register_no= #{register_no}
+ 	</update>
+ </mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="IconCategoryMapper">
+<!--    autoMapping을 설정해 준경우에는 column과 property 값이 동일할 떄 사용하면 좋다 -->
+
+ 	<select id="selectIconURLByCode" resultType="java.lang.String">
+		select * from icon_url_category_tb where icon_code=#{icon_code}
+ 	</select>
+ 	<select id="selectIconCodeByURL" resultType="java.lang.String">
+		select * from icon_url_category_tb where icon_url=#{icon_url} and TYPE=#{type}
+ 	</select>
+ 	<select id="selectIconURLByType" resultType="IconCategory">
+		select * from icon_url_category_tb where TYPE=#{type}
+ 	</select>
+ 	<select id="selectIconURL" resultType="IconCategory">
+		select * from icon_url_category_tb
+ 	</select>
+
+ </mapper>

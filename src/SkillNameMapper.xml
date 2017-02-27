@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="SkillNameMapper">
+  	<insert id="insertSkillNameCategoryETC" parameterType="java.lang.String">
+  		insert into skill_name_tb values('ps5',#{skill_name}, '/resources/images/etc.png')
+  	</insert>
+  	
+  	<select id="selectSkillNameCategory" resultType="com.omazing.portfolio.dto.SkillNameDTO">
+  		select * from  skill_name_tb
+  	</select>
+  	
+  	<select id="selectSkillNameByName" resultType="com.omazing.portfolio.dto.SkillNameDTO">
+  		select * from  skill_name_tb where skill_name = #{name}
+  	</select>
+  	
+  	<delete id="deleteSkillNameByName">
+  		delete skill_name_tb where skill_name = #{name}
+  	</delete>
+  	
+ </mapper>
