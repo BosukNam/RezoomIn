@@ -11,8 +11,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
- <link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+ <link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
  <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/godofont.css">
 <style>
@@ -564,9 +564,9 @@
             var jsonData = JSON.stringify(obj);
             
 			$.ajax({
-				/* url:'/TestFinalProject/gchild.do',
+				/* url:'/RezoomIn/gchild.do',
 				type:'POST', */
-				url:'/TestFinalProject/personal.do',
+				url:'/RezoomIn/personal.do',
 				type:'post',
 				data : { json : jsonData },
 				success:function(res){ // 응답 온 데이터
@@ -603,7 +603,7 @@
             var jsonData = JSON.stringify(obj);
             
 			$.ajax({
-				url:'/TestFinalProject/personal.do',
+				url:'/RezoomIn/personal.do',
 				type:'post',
 				data : { json : jsonData },
 				success:function(res){ // 응답 온 데이터
@@ -640,7 +640,7 @@
             var jsonData = JSON.stringify(obj);
             
 			$.ajax({
-				url:'/TestFinalProject/personal.do',
+				url:'/RezoomIn/personal.do',
 				type:'post',
 				data : { json : jsonData },
 				success:function(res){ // 응답 온 데이터
@@ -677,7 +677,7 @@
             var jsonData = JSON.stringify(obj);
             
 			$.ajax({
-				url:'/TestFinalProject/personal.do',
+				url:'/RezoomIn/personal.do',
 				type:'post', 
 				data : { json : jsonData },
 				success:function(res){ // 응답 온 데이터
@@ -804,7 +804,7 @@
 			if($('#from').val()=='load'){
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/personalload.do',
+					url:'/RezoomIn/personalload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -841,7 +841,7 @@
 			if($('#from').val()=='load'){
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/personalload.do',
+					url:'/RezoomIn/personalload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -873,7 +873,7 @@
 			if($('#from').val()=='load'){
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/personalload.do',
+					url:'/RezoomIn/personalload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -904,7 +904,7 @@
 			if($('#from').val()=='load'){
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/personalload.do',
+					url:'/RezoomIn/personalload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -934,7 +934,7 @@
 			
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/specialtyload.do',
+					url:'/RezoomIn/specialtyload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -983,7 +983,7 @@
 
 				$.ajax({
 					type:'get',
-					url:'/TestFinalProject/specialtyload.do',
+					url:'/RezoomIn/specialtyload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -1026,9 +1026,9 @@
 			if($('#from').val()=='load'){
 				$.ajax({
 					/* type:'post',
-					url:'/TestFinalProject/keyword.do', */
+					url:'/RezoomIn/keyword.do', */
 					type:'get',
-					url:'/TestFinalProject/personalload.do',
+					url:'/RezoomIn/personalload.do',
 					data:{"id":'yeeee4'},
 					success:function(res){
 						var obj = JSON.parse(res);
@@ -1114,9 +1114,9 @@
 		$("#hobbyConfirmBtn").on('click',function() {
 			var formData = $("#hobbyFrm").serialize();
 			$.ajax({
-				/* url:'/TestFinalProject/hobbies.do',
+				/* url:'/RezoomIn/hobbies.do',
 				type:'POST', */
-				url:'/TestFinalProject/specialtyhobby.do',
+				url:'/RezoomIn/specialtyhobby.do',
 				type:'get',
 				data : formData,
 				success:function(res){ // 응답 온 데이터
@@ -1190,9 +1190,9 @@
 		$("#skillConfirmBtn").on('click',function() {
 			var formData = $("#skillFrm").serialize();
 			$.ajax({
-				/* url:'/TestFinalProject/skills.do',
+				/* url:'/RezoomIn/skills.do',
 				type:'POST', */
-				url:'/TestFinalProject/specialtyskill.do',
+				url:'/RezoomIn/specialtyskill.do',
 				type:'get',
 				data : formData,
 				success:function(res){ // 응답 온 데이터
@@ -1263,10 +1263,10 @@
 		$("#keywordConfirmBtn").on('click',function() {
 			var formData = $("#keywordFrm").serialize();
 			$.ajax({
-				/* url:'/TestFinalProject/keyword.do',
+				/* url:'/RezoomIn/keyword.do',
 				type:'POST', */
 				type:'post',
-				url:'/TestFinalProject/personalkey.do',
+				url:'/RezoomIn/personalkey.do',
 				data : formData,
 				success:function(res){ // 응답 온 데이터
 					 alert(res);

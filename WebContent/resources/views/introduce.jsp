@@ -66,27 +66,27 @@
 			$('#addModal').modal('show');
 		});
 		$("#showBtn").on('click', function() {
-			location.replace("/TestFinalProject/previewperson.do");
+			location.replace("/RezoomIn/previewperson.do");
 		});
 		$("#growup").on('click', function() {
-			/* location.replace("/TestFinalProject/ngrowup.do"); */
-			location.replace("/TestFinalProject/personalpage.do?type=new");
+			/* location.replace("/RezoomIn/ngrowup.do"); */
+			location.replace("/RezoomIn/personalpage.do?type=new");
 		});
 		$("#strength").on('click', function() {
-			/* location.replace("/TestFinalProject/nstrength.do"); */
-			location.replace("/TestFinalProject/strengthpage.do?type=new");
+			/* location.replace("/RezoomIn/nstrength.do"); */
+			location.replace("/RezoomIn/strengthpage.do?type=new");
 		});
 		$("#overcome").on('click', function() {
-			/* location.replace("/TestFinalProject/novercome.do"); */
-			location.replace("/TestFinalProject/experiencepage.do?type=new");
+			/* location.replace("/RezoomIn/novercome.do"); */
+			location.replace("/RezoomIn/experiencepage.do?type=new");
 		});
 		$("#ready").on('click', function() {
-			/* location.replace("/TestFinalProject/nready.do"); */
-			location.replace("/TestFinalProject/readypage.do?type=new");
+			/* location.replace("/RezoomIn/nready.do"); */
+			location.replace("/RezoomIn/readypage.do?type=new");
 		});
 		$("#goal").on('click', function() {
-			/* location.replace("/TestFinalProject/ngoal.do"); */
-			location.replace("/TestFinalProject/goalpage.do?type=new");
+			/* location.replace("/RezoomIn/ngoal.do"); */
+			location.replace("/RezoomIn/goalpage.do?type=new");
 		});
 	});
 </script>

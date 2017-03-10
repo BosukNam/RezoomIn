@@ -15,7 +15,7 @@
 		$(".goal").hide();
 		
 		$.ajax({
-			url:'/TestFinalProject/getpersonalreport.do',
+			url:'/RezoomIn/getpersonalreport.do',
 			type:'post',
 			data:{"id":'yeeee4'},
 			success:function(res){ // 응답 온 데이터
@@ -44,29 +44,29 @@
 		});
 
 		$("#historyThm").on('click', function() {
-			/* location.replace("/TestFinalProject/lgrowup.do"); */
-			location.replace("/TestFinalProject/personalpage.do?type=load");
+			/* location.replace("/RezoomIn/lgrowup.do"); */
+			location.replace("/RezoomIn/personalpage.do?type=load");
 		});
 		$("#strengthThm").on('click', function() {
-			/* location.replace("/TestFinalProject/lstrength.do"); */
-			location.replace("/TestFinalProject/strengthpage.do?type=load");
+			/* location.replace("/RezoomIn/lstrength.do"); */
+			location.replace("/RezoomIn/strengthpage.do?type=load");
 		});
 		$("#experienceThm").on('click', function() {
-			/* location.replace("/TestFinalProject/lovercome.do"); */
-			location.replace("/TestFinalProject/experiencepage.do?type=load");
+			/* location.replace("/RezoomIn/lovercome.do"); */
+			location.replace("/RezoomIn/experiencepage.do?type=load");
 		});
 		$("#readyThm").on('click', function() {
-			/* location.replace("/TestFinalProject/lready.do"); */
-			location.replace("/TestFinalProject/readypage.do?type=load");
+			/* location.replace("/RezoomIn/lready.do"); */
+			location.replace("/RezoomIn/readypage.do?type=load");
 		});
 		$("#goalThm").on('click', function() {
-			/* location.replace("/TestFinalProject/lgoal.do"); */
-			location.replace("/TestFinalProject/goalpage.do?type=load");
+			/* location.replace("/RezoomIn/lgoal.do"); */
+			location.replace("/RezoomIn/goalpage.do?type=load");
 		});
 		$("#historyClose").on('click', function() {
 			if (confirm("성장과정을 삭제하시겠습니까?\n(입력한 모든 내용이 삭제됩니다)")) {
 				$.ajax({
-					url : '/TestFinalProject/personaldel.do',
+					url : '/RezoomIn/personaldel.do',
 					type : 'post',
 					async : false,
 					data : {
@@ -86,7 +86,7 @@
 		$("#strengthClose").on('click', function() {
 			if (confirm("장점을 삭제하시겠습니까?\n(입력한 모든 내용이 삭제됩니다)")) {
 				$.ajax({
-					url : '/TestFinalProject/strengthdel.do',
+					url : '/RezoomIn/strengthdel.do',
 					type : 'post',
 					async : false,
 					data : {
@@ -106,7 +106,7 @@
 		$("#experienceClose").on('click', function() {
 			if (confirm("극복과정을 삭제하시겠습니까?\n(입력한 모든 내용이 삭제됩니다)")) {
 				$.ajax({
-					url : '/TestFinalProject/experiencedel.do',
+					url : '/RezoomIn/experiencedel.do',
 					type : 'post',
 					async : false,
 					data : {
@@ -126,7 +126,7 @@
 		$("#readyClose").on('click', function() {
 			if (confirm("준비과정을 삭제하시겠습니까?\n(입력한 모든 내용이 삭제됩니다)")) {
 				$.ajax({
-					url : '/TestFinalProject/readydel.do',
+					url : '/RezoomIn/readydel.do',
 					type : 'post',
 					async : false,
 					data : {
@@ -146,7 +146,7 @@
 		$("#goalClose").on('click', function() {
 			if (confirm("비전 및 목표를 삭제하시겠습니까?\n(입력한 모든 내용이 삭제됩니다)")) {
 				$.ajax({
-					url : '/TestFinalProject/goaldel.do',
+					url : '/RezoomIn/goaldel.do',
 					type : 'post',
 					async : false,
 					data : {

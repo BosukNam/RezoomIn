@@ -104,7 +104,7 @@ public class PortfolioProfileController extends HttpServlet {
 			}
 		}
 		mav.addObject("awards", awardBeans);
-		System.out.println("프로필에서" + awardBeans[0].toString());
+//		System.out.println("프로필에서" + awardBeans[0].toString());
 		mav.setViewName("/resources/views/profile.jsp");
 		return mav;
 	}

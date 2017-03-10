@@ -53,7 +53,7 @@
                      </div>
                      <br>
                      <div class="thumb-content">
-                     	<img src='/TestFinalProject/resources/images/checklist.png' width="250px" height="250px" alt=''>
+                     	<img src='/RezoomIn/resources/images/checklist.png' width="250px" height="250px" alt=''>
                      	<div class="caption">개 요</div>
                      </div>
                   </div>
@@ -68,7 +68,7 @@
                      </div>
                      <br>
                      <div class="thumb-content">
-                     <img src='/TestFinalProject/resources/images/teamwork.png' height="250px" width="250px" alt=''>
+                     <img src='/RezoomIn/resources/images/teamwork.png' height="250px" width="250px" alt=''>
                      <div class="caption">주요 역할 및 담당</div>
                      </div>
                      </div>
@@ -83,7 +83,7 @@
                      </div>
                      <br>
                      <div class="thumb-content">
-                     <img src='/TestFinalProject/resources/images/projectcontent.png' alt=''>
+                     <img src='/RezoomIn/resources/images/projectcontent.png' alt=''>
                      <div class="caption">프로젝트 내용</div>
                      </div>
                   </div>
@@ -162,7 +162,7 @@
     	  	var registerNo=$('#set-project-role-and-task')
         	$.ajax({
         	   	type:"POST",
-        	   	url:"/TestFinalProject/selectRoleAndTask.do",
+        	   	url:"/RezoomIn/selectRoleAndTask.do",
         	   	data:{
         	   		projectNo:projectNo.attr("value")
         	   	},

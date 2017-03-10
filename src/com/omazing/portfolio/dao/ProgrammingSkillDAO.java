@@ -73,7 +73,7 @@ public class ProgrammingSkillDAO implements Serializable{
 	public Map<Integer, PortfolioDTO> selectProgrammingSkillByID(String memberID){
 		try {
 			Map<Integer, PortfolioDTO> manager = Collections.synchronizedMap(new HashMap<Integer, PortfolioDTO>());
-			manager = sqlSession.selectMap("PortfolioProfileMapper.selectProgrammingSkillByID",memberID, "register_no");
+//			manager = sqlSession.selectMap("PortfolioProfileMapper.selectProgrammingSkillByID",memberID, "register_no");
 			
 			return manager;
 		}catch(Exception e){
