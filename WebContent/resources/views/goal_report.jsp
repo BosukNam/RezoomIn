@@ -9,8 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
- <link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+ <link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
 
 
 
@@ -64,9 +64,9 @@
 		if($('#from').val()=='load'){
 			$.ajax({
 				/* type:'post',
-				url:'/TestFinalProject/goal.do', */
+				url:'/RezoomIn/goal.do', */
 				type:'get',
-				url:'/TestFinalProject/goalload.do',
+				url:'/RezoomIn/goalload.do',
 				data:{"id":'yeeee4'},
 				success:function(res){
 					var obj = JSON.parse(res);
@@ -142,9 +142,9 @@
 	    	 var formData = $("#goalFrm").serialize();
 	    	 
 				$.ajax({
-					/* url:'/TestFinalProject/goal.do',
+					/* url:'/RezoomIn/goal.do',
 					type:'POST', */
-					url:'/TestFinalProject/goalreport.do',
+					url:'/RezoomIn/goalreport.do',
 					type:'get',
 					data : formData,
 					success:function(res){ // 응답 온 데이터

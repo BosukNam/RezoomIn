@@ -41,7 +41,7 @@
 					</div>
 					<!--입력 폼 부분 - form_container -->
 					<div class="container col-md-8 col-md-offset-2 form_container">
-					<form class="form-horizontal" id="editForm" method="POST" action="/TestFinalProject/edit.do"> <!--  -->
+					<form class="form-horizontal" id="editForm" method="POST" action="/RezoomIn/edit.do"> <!--  -->
 						<!-- ID  -->
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">I D</label>
@@ -112,7 +112,7 @@
 	<div class="col-md-8 container">
 	 <div class="main" align="center">
 		<h1 class="glyphicon glyphicon glyphicon-edit" style="display: inline;">회원정보수정</h1>
-		<form class="form-horizontal" id="editForm" method="POST" action="/TestFinalProject/edit.do">
+		<form class="form-horizontal" id="editForm" method="POST" action="/RezoomIn/edit.do">
 		<div class="form-group">
 		<label for="editText" class="col-md-2 col-md-offset-3 control-label input_title">ID</label>
 		<div class="row col-md-offset-7"></div>

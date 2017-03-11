@@ -11,7 +11,7 @@
       <div class="modal-body">
         <p align="center" id="drop_msg">정말로 탈퇴하시겠습니까?</p>
         <div class="row" style="color:red" id="drop_pwd_message" hidden="hidden">비밀번호를 확인해주세요</div>
-        	<form class="form-horizontal" id="dropForm" method="POST" action="/TestFinalProject/drop.do" hidden="hidden">
+        	<form class="form-horizontal" id="dropForm" method="POST" action="/RezoomIn/drop.do" hidden="hidden">
 				<!-- 비밀번호  -->
 				<div class="form-group">
 					<label for="drop_password" class="cols-sm-2 control-label">비밀번호</label>

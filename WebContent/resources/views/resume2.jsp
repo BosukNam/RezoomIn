@@ -5,13 +5,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
-<link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+<link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
 
 
-<script src="/TestFinalProject/resources/scripts/html2canvas.js"></script>
-<script src="/TestFinalProject/resources/scripts/jquery.printPage.js"></script>
-<link href="/TestFinalProject/resources/css/print.css" rel="stylesheet" media="print" />
+<script src="/RezoomIn/resources/scripts/html2canvas.js"></script>
+<script src="/RezoomIn/resources/scripts/jquery.printPage.js"></script>
+<link href="/RezoomIn/resources/css/print.css" rel="stylesheet" media="print" />
 
 
 <script type="text/javascript">
@@ -30,7 +30,7 @@
 
 			/* $.ajax({
 				type : 'post',
-				url : '/TestFinalProject/PDF_i',
+				url : '/RezoomIn/PDF_i',
 				data : {
 					"html" : html
 				}
@@ -59,7 +59,7 @@
 		/* $("#btPrintResumePage")
 		.printPage(
 				{
-					url : "http://localhost:8089/TestFinalProject/resources/views/resume.jsp",
+					url : "http://localhost:8089/RezoomIn/resources/views/resume.jsp",
 					attr : "href",
 					message : "도큐먼트 인쇄를 준비중입니다."
 				}); */
@@ -97,7 +97,7 @@
 			 		</tr>
 			 		
 			 		 <tr><td rowspan="6"align="center" style="vertical-align: middle;">
-			 		 <img src="/TestFinalProject/resources/images/hwang.JPG"
+			 		 <img src="/RezoomIn/resources/images/hwang.JPG"
 			 		  style="width: 8em; height: 8em; margin: 0px; padding: 0px; ">
 			 		  </td></tr>
 				 	

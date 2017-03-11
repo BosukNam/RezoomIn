@@ -45,7 +45,7 @@
 						<div class="carousel-content"><br>
 							<div class="row">
 								<div class="col-md-3 col-md-offset-2">
-									<img src="/TestFinalProject/resources/images/hwang.JPG" width="200px" height="180px">
+									<img src="/RezoomIn/resources/images/hwang.JPG" width="200px" height="180px">
 									<h4 align="center">${requestScope.profile.name }(28)</h4>
 									<p align="center">${requestScope.profile.birthDate }
 									<p>

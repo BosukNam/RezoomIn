@@ -12,7 +12,7 @@ $(function(){
 	   if(registerNo.attr("value")!="0"){
 		   $.ajax({
 		      type:"POST",
-		      url:"/TestFinalProject/deleteProgramContent.do",
+		      url:"/RezoomIn/deleteProgramContent.do",
 		      data:{
 		         registerNo:registerNo.attr("value"),
 		         projectNo:projectNo.attr('value'),
@@ -44,7 +44,7 @@ $(function(){
 	   if(registerNo.attr("value")=="0"){
 		  url="insertProgramContent.do"
 	   }
-	   url="/TestFinalProject/"+url;
+	   url="/RezoomIn/"+url;
 	   alert(url+$('#program-intro-text').val()+registerNo.attr("value"));	
 	   $.ajax({
 	      type:"POST",
@@ -80,7 +80,7 @@ $(function(){
 		if($('#set-project-date').attr('value')!="0"){
 			$.ajax({
 				type:"POST",
-				url:"/TestFinalProject/updateDate.do",
+				url:"/RezoomIn/updateDate.do",
 				data:{
 					registerNo:$('#set-project-date').attr("value"),
 				},
@@ -107,7 +107,7 @@ $(function(){
 		//var registerNo = $('#set-project-date')
 			$.ajax({
 				type:"POST",
-				url:"/TestFinalProject/updateDate.do",
+				url:"/RezoomIn/updateDate.do",
 				data:{
 					registerNo:registerNo.attr('value'),
 		            startDate:$('#program-term-start').val(),
@@ -138,7 +138,7 @@ $(function(){
 		var registerNo=$('#set-project-people-no')
 		$.ajax({
 			type:"POST",
-			url:"/TestFinalProject/updatePoepleNo.do",
+			url:"/RezoomIn/updatePoepleNo.do",
 			date:{
 				//프로젝트 레지스터 번호
 				regsterNo:registerNo.attr("value"),
@@ -165,7 +165,7 @@ $(function(){
 		if(registerNo.attr("value")!="0"){
 			$.ajax({
 				type:"POST",
-				url:"/TestFinalProject/updatePoepleNo.do",
+				url:"/RezoomIn/updatePoepleNo.do",
 				date:{
 					//프로젝트 레지스터 번호
 					registerNo:registerNo.attr("value",data)
@@ -203,7 +203,7 @@ $(function(){
       	  });
       	$.ajax({
    		  type:"GET",
-             url:"/TestFinalProject/insertUseSkill.do",
+             url:"/RezoomIn/insertUseSkill.do",
              data:{
              	"registerArray" : register_no,
              	"project_no": 1
@@ -227,7 +227,7 @@ $(function(){
     	 
     	  	  $.ajax({
     	            type:"POST",
-    	            url:"/TestFinalProject/searchUseSkillByField.do",
+    	            url:"/RezoomIn/searchUseSkillByField.do",
     	            data:{
     	               field:"0",
     	              project_no: 1
@@ -264,7 +264,7 @@ $(function(){
     	  var registerNo=$('#set-project-people-no')
     	  $.ajax({
     		  type:"POST",
-    		  url:"/TestFinalProject/selectPeopleNo.do",
+    		  url:"/RezoomIn/selectPeopleNo.do",
     		  data:{
     			  registerNo:registerNo.attr("value")
     		  },
@@ -286,7 +286,7 @@ $(function(){
     	 var registerNO= $('#set-project-date');
     	 $.ajax({
     		  type:"POST",
-    		  url:"/TestFinalProject/selectProjectDate.do",
+    		  url:"/RezoomIn/selectProjectDate.do",
     		  data:{
     			  registerNo:registerNO.attr("value")
     		  },
@@ -312,7 +312,7 @@ $(function(){
     	 var projectNo=$('#project')
 	     $.ajax({
 	   		  type:"POST",
-	   		  url:"/TestFinalProject/selectProgramContent.do",
+	   		  url:"/RezoomIn/selectProgramContent.do",
 	   		  data:{
 	   			  projectNo:$('#project').attr('value'),
 	   			  category:"pc1"

@@ -54,6 +54,6 @@ $(function(){
 	});
 	// 회원 정보 삭제 눌렀을 때 데이터 전송
 /*	$('#dropBtn').click(function(){
-		location.replace("/TestFinalProject/delete.do");
+		location.replace("/RezoomIn/delete.do");
 	});*/
 })

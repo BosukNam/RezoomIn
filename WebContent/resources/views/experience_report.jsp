@@ -10,8 +10,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
- <link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+ <link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
 
 
 
@@ -67,9 +67,9 @@
 		if($('#from').val()=='load'){
 			$.ajax({
 				/* type:'post',
-				url:'/TestFinalProject/overcome.do', */
+				url:'/RezoomIn/overcome.do', */
 				type:'get',
-				url:'/TestFinalProject/experienceload.do',
+				url:'/RezoomIn/experienceload.do',
 				data:{"id":'yeeee4'},
 				success:function(res){
 					var obj = JSON.parse(res);
@@ -160,9 +160,9 @@
 	    	 var formData = $("#overcomeFrm").serialize();
 	    	 
 				$.ajax({
-					/* url:'/TestFinalProject/overcome.do',
+					/* url:'/RezoomIn/overcome.do',
 					type:'POST', */
-					url:'/TestFinalProject/experiencereport.do',
+					url:'/RezoomIn/experiencereport.do',
 					type:'post',
 					data : formData,
 					success:function(res){ // 응답 온 데이터

@@ -11,9 +11,9 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
-<link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
-<!-- <link href="/TestFinalProject/resources/css/godofont.css" rel="stylesheet" type="text/css"> -->
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+<link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
+<!-- <link href="/RezoomIn/resources/css/godofont.css" rel="stylesheet" type="text/css"> -->
  <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/godofont.css">
 

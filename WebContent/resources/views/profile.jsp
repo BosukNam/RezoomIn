@@ -156,9 +156,9 @@
 			var registerNo = $('#hidden-language-registerNo').val();
 			var url;
 			if(state=="modify"){
-				url = '/TestFinalProject/modifyProgrammingSkill.do'
+				url = '/RezoomIn/modifyProgrammingSkill.do'
 			}else{
-				url = '/TestFinalProject/addProgrammingSkill.do'
+				url = '/RezoomIn/addProgrammingSkill.do'
 			}
 			
 				$.ajax({
@@ -197,7 +197,7 @@
 						var register_no = $(this).parent('.thumbnail').find('.hidden_language').val();
 						var target = this;
 						$.ajax({
-							url:'/TestFinalProject/deleteProgrammingSkill.do',
+							url:'/RezoomIn/deleteProgrammingSkill.do',
 							type:'post',
 							data:{
 								"register_no" : register_no
@@ -228,7 +228,7 @@
 			console.log(register_no);
 			var target = this;
 			$.ajax({
-				url:'/TestFinalProject/deleteProgrammingSkill.do',
+				url:'/RezoomIn/deleteProgrammingSkill.do',
 				type:'post',
 				data:{
 					"register_no" : register_no
@@ -274,7 +274,7 @@
 			$('#hidden-language-modal').prop("value", name)
 			
 			 $.ajax({
-				url:'/TestFinalProject/searchProgrammingSkill.do',
+				url:'/RezoomIn/searchProgrammingSkill.do',
 				type:'post',
 				data:{
 					"name" : name
@@ -324,9 +324,9 @@
 			var registerNo = $('#hidden-tool-registerNo').val();
 			var url;
 			if(state=="modify"){
-				url = '/TestFinalProject/modifyProgrammingSkill.do'
+				url = '/RezoomIn/modifyProgrammingSkill.do'
 			}else{
-				url = '/TestFinalProject/addProgrammingSkill.do'
+				url = '/RezoomIn/addProgrammingSkill.do'
 			}
 			console.log(type);
 			$.ajax({
@@ -364,7 +364,7 @@
 					console.log(register_no);
 					var target = this;
 					$.ajax({
-						url:'/TestFinalProject/deleteProgrammingSkill.do',
+						url:'/RezoomIn/deleteProgrammingSkill.do',
 						type:'post',
 						data:{
 							"register_no" : register_no
@@ -422,7 +422,7 @@
 			$('#hidden-develop-modal').attr("value", name);
 			 
 			 $.ajax({
-					url:'/TestFinalProject/searchProgrammingSkill.do',
+					url:'/RezoomIn/searchProgrammingSkill.do',
 					type:'post',
 					data:{
 						"name" : name
@@ -445,7 +445,7 @@
 			var register_no = $(this).parent('.thumbnail').find('.hidden_tool').val();
 			var target = this;
 			$.ajax({
-				url:'/TestFinalProject/deleteProgrammingSkill.do',
+				url:'/RezoomIn/deleteProgrammingSkill.do',
 				type:'post',
 				data:{
 					"register_no" : register_no

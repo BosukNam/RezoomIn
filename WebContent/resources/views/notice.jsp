@@ -67,7 +67,7 @@
 					</c:if>
 						<tr>
 							<td>
-								<a href="/TestFinalProject/notice_detail.do?key=${board[0]}"><h5>${board[2]}</h5></a>
+								<a href="/RezoomIn/notice_detail.do?key=${board[0]}"><h5>${board[2]}</h5></a>
 								<h6>관리자 | ${board[1]}</h6>
 							</td>
 						</tr>

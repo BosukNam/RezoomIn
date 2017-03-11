@@ -75,7 +75,7 @@ h3{
 		});
 						
 		$.ajax({
-			url:'/TestFinalProject/getpersonalreport.do',
+			url:'/RezoomIn/getpersonalreport.do',
 			type:'post',
 			data:{"id":'yeeee4'},
 			success:function(res){ // 응답 온 데이터

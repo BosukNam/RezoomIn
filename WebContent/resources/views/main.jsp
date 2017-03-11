@@ -15,9 +15,9 @@
 	href="${pageContext.request.contextPath }/resources/css/godofont.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>	
-<!-- 	<link href="/TestFinalProject/resources/css/header.css" rel="stylesheet"> -->
-	<link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet">
-	<link href="/TestFinalProject/resources/css/carousel_main.css" rel="stylesheet">
+<!-- 	<link href="/RezoomIn/resources/css/header.css" rel="stylesheet"> -->
+	<link href="/RezoomIn/resources/css/footer.css" rel="stylesheet">
+	<link href="/RezoomIn/resources/css/carousel_main.css" rel="stylesheet">
   </head>
   <body>
 	<!-- header 시작 -->

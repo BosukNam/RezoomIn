@@ -60,7 +60,7 @@ $('#loginBtn').click(function(){
 		{
 			$.ajax({
 				type:"POST",
-				url:"/TestFinalProject/privatelogin.do",
+				url:"/RezoomIn/privatelogin.do",
 				data:{
 					id:$('#loginEmail').val(),
 					pwd:$('#loginPassword').val(),	
@@ -69,7 +69,7 @@ $('#loginBtn').click(function(){
 				{
 					if(res.trim()=='LOGIN-SUCCESS'){
 					  	$('#login-modal').modal('hide');
-					  	location.replace("/TestFinalProject/privateafterlogin.do");
+					  	location.replace("/RezoomIn/privateafterlogin.do");
 					}
 					else if(res.trim()=='NO-ID'){
 						alert("존재하지 않는 아이디입니다!");
@@ -91,7 +91,7 @@ $('#loginBtn').click(function(){
 		{
 			$.ajax({
 				type:"POST",
-				url:"/TestFinalProject/companylogin.do",
+				url:"/RezoomIn/companylogin.do",
 				data:{
 					id:$('#loginEmail').val(),
 					pwd:$('#loginPassword').val(),	
@@ -100,7 +100,7 @@ $('#loginBtn').click(function(){
 				{
 					if(res.trim()=='LOGIN-SUCCESS'){
 					  	$('#login-modal').modal('hide');
-					  	location.replace("/TestFinalProject/companypage.do");
+					  	location.replace("/RezoomIn/companypage.do");
 					}
 					else if(res.trim()=='NO-ID'){
 						alert("존재하지 않는 아이디입니다!");

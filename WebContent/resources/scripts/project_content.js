@@ -18,7 +18,7 @@ $(function(){
     function insertUserSKill(project_no, register_no){
     	 $.ajax({
      		  type:"GET",
-               url:"/TestFinalProject/insertUseSkill.do",
+               url:"/RezoomIn/insertUseSkill.do",
                data:{
                	"registerArray" : register_no,
                	"project_no": 1
@@ -40,7 +40,7 @@ $(function(){
 		if (registerNo.attr("value") == "0") {
 			url = "insertProgramContent.do"
 		}
-		url = "/TestFinalProject/" + url;
+		url = "/RezoomIn/" + url;
 		alert(url + $('#user-defined-content').val()
 				+ registerNo.attr("value"));
 		$.ajax({
@@ -77,7 +77,7 @@ $(function(){
 		   if(registerNo.attr("value")!="0"){
 			   $.ajax({
 			      type:"POST",
-			      url:"/TestFinalProject/deleteProgramContent.do",
+			      url:"/RezoomIn/deleteProgramContent.do",
 			      data:{
 			         registerNo:registerNo.attr("value"),
 			         projectNo:projectNo.attr('value'),
@@ -121,7 +121,7 @@ $(function(){
     	
   	  $.ajax({
             type:"POST",
-            url:"/TestFinalProject/searchUseSkillByField.do",
+            url:"/RezoomIn/searchUseSkillByField.do",
             data:{
                field:"1",
               project_no: 1
@@ -177,7 +177,7 @@ $(function(){
 			 console.log(formData.get("uploadfile"));
 	  	  $.ajax({
 	  		  type:"POST",
-	            url:"/TestFinalProject/readmyproject.do",
+	            url:"/RezoomIn/readmyproject.do",
 	            processData:false,
 	            contentType:false,
 	            data:formData,
@@ -196,7 +196,7 @@ $(function(){
     function searchLibrary(contentName){
         $.ajax({
             type:"POST",
-            url:"/TestFinalProject/",
+            url:"/RezoomIn/",
             data:{
                state : "search",
                flag:contentName,
@@ -220,7 +220,7 @@ $(function(){
     function searchSystemArchitecture(){
     	$.ajax({
     		  type:"POST",
-              url:"/TestFinalProject/searchSystemArchitecture.do",
+              url:"/RezoomIn/searchSystemArchitecture.do",
               data:{
                  project_no : 1
               },
@@ -267,9 +267,9 @@ $(function(){
   	  var middle_ware =  $('#middle-config').val();
   	  console.log(register_no);
   	  if(register_no==-1){
-  		  url = "/TestFinalProject/insertSystemArchitecture.do"
+  		  url = "/RezoomIn/insertSystemArchitecture.do"
   	  }else {
-  		  url = "/TestFinalProject/updateSystemArchitecture.do"
+  		  url = "/RezoomIn/updateSystemArchitecture.do"
   	  }
   	  
   	  $.ajax({
@@ -330,9 +330,9 @@ $(function(){
       	var usecase = $('#usecase_file_hidden').val();
       	console.log(usecase);
       	if(register_no==-1){
-      		url = "/TestFinalProject/insertSoftwareArchitecture.do"
+      		url = "/RezoomIn/insertSoftwareArchitecture.do"
       	}else {
-      		url = "/TestFinalProject/updateSoftwareArchitecture.do"
+      		url = "/RezoomIn/updateSoftwareArchitecture.do"
       	}
       	var formData = new FormData();
       	formData.append("diagram_image",$('#diagram-Btn')[0].files[0])
@@ -357,7 +357,7 @@ $(function(){
     function searchSoftArchitecture(){
     	$.ajax({
     		  type:"POST",
-              url:"/TestFinalProject/searchSoftwareArchitecture.do",
+              url:"/RezoomIn/searchSoftwareArchitecture.do",
               data:{
                  project_no : 1
               },
@@ -426,7 +426,7 @@ $(function(){
    	 	 var projectNo=$('#project')
 	     $.ajax({
 	   		  type:"POST",
-	   		  url:"/TestFinalProject/selectProgramContent.do",
+	   		  url:"/RezoomIn/selectProgramContent.do",
 	   		  data:{
 	   			  projectNo:$('#project').attr('value'),
 	   			  category:"pc2"

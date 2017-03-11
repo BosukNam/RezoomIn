@@ -32,7 +32,7 @@
 			<h1>게시글 수정</h1>
 		</div>
 		<div class="col-md-12">
-		<form action="/TestFinalProject/update.do" id="formData" method="post">
+		<form action="/RezoomIn/update.do" id="formData" method="post">
 			<hr>
 			<input type="hidden" name="flag" value="edit">
 			<input type="hidden" name="key" value="${info[0]}">

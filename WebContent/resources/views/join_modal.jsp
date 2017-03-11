@@ -221,7 +221,7 @@ $(function(){
 			
 			$.ajax({
 				type: "POST",
-				url: "/TestFinalProject/companyjoin.do",
+				url: "/RezoomIn/companyjoin.do",
 				data: form,
 				success:function(res)
 				{
@@ -297,7 +297,7 @@ $(function(){
 			
 			$.ajax({
 				type: "POST",
-				url: "/TestFinalProject/privatejoin.do",
+				url: "/RezoomIn/privatejoin.do",
 				data: form,
 				success:function(res)
 				{

@@ -42,7 +42,7 @@
 			<!-- <img src="http://place-hold.it/30x30" class="img-circle"> -->
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 			<span>${sessionScope.memberID}</span>
-			<a href="/TestFinalProject/search.do"><small>내 정보</small></a> 
+			<a href="/RezoomIn/search.do"><small>내 정보</small></a> 
 			<a href="#" id="main-logout"><small>로그아웃</small></a>
 		</nav>
 		</div> 
@@ -90,7 +90,7 @@
 	});
 
 	$('#main-logout').click(function(){
-	  	location.replace("/TestFinalProject/privatelogout.do");
+	  	location.replace("/RezoomIn/privatelogout.do");
 	})
 	
 	$('#login').click(function(){

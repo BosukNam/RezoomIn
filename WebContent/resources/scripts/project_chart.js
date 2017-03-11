@@ -52,7 +52,7 @@ $(function(){
 		console.log('chart');
 		$.ajax({
 			type:"POST",
-			url:"/TestFinalProject/selectChart.do",
+			url:"/RezoomIn/selectChart.do",
 			data:{
 				registerNo:registerNo.attr('value')
 			},
@@ -153,9 +153,9 @@ $(function(){
     	  //programIntro가 -1이 아닌 경우 차트 수정
     	  alert(field);
     	  var registerNo=field.parent();
-    	  var url="/TestFinalProject/readmyproject.do"
+    	  var url="/RezoomIn/readmyproject.do"
     	  if(registerNo.attr("id")=="-1"){
-    		  url="/TestFinalProject/insertChart.do"
+    		  url="/RezoomIn/insertChart.do"
     	  }
     	  //projectIntro인지, userdefined인지 구분하여 쿼리 추가하기
     	  var formData=new $('#chart-form').serialize()+
@@ -183,7 +183,7 @@ $(function(){
     	var registerNo=$('#program-intro-save').parent();
         $.ajax({
         	type:"POST",
-        	url:"/TestFinalProject/readmyproject.do",
+        	url:"/RezoomIn/readmyproject.do",
         	data:{
         		state:"delete",
 				flag:"차트",

@@ -8,8 +8,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
-<link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+<link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/resources/css/godofontToHeader.css" rel="stylesheet" type="text/css">
 <style>
 

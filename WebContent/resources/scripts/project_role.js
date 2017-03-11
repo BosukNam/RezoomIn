@@ -8,7 +8,7 @@ $(function(){
 		if(registerNo.attr("value")!="0"){
 			$.ajax({
 				type : "POST",
-				url : "/TestFinalProject/deleteRoleAndTask.do",
+				url : "/RezoomIn/deleteRoleAndTask.do",
 				data : {
 					registerNo:registerNo.attr("value")
 				},
@@ -35,9 +35,9 @@ $(function(){
 	$('#major-role-savebtn').click(function() {
 		var registerNo = $('#set-project-role-and-task');
 		//만약 registerNo 가 -1이면 새로등록, 아니면 기존에 있는 내용 수정
-		var url="/TestFinalProject/updateRoleAndTask.do"
+		var url="/RezoomIn/updateRoleAndTask.do"
 		if (registerNo.attr("value") == "0") {
-			url="/TestFinalProject/insertRoleAndTask.do"
+			url="/RezoomIn/insertRoleAndTask.do"
 		}
 		alert("text"+$('#project-role-text').val() + "url : "+url);
 		$.ajax({

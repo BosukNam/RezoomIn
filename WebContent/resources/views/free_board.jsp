@@ -67,7 +67,7 @@
 					</c:if>
 						<tr>
 							<td>
-								<a href="/TestFinalProject/freeBoard_detail.do?key=${board[0]}"><h5>${board[5]}</h5></a>
+								<a href="/RezoomIn/freeBoard_detail.do?key=${board[0]}"><h5>${board[5]}</h5></a>
 								<h6>${board[1]} | ${board[3]}</h6>
 							</td>
 						</tr>

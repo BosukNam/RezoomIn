@@ -9,8 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/TestFinalProject/resources/css/myBoot.css">
- <link href="/TestFinalProject/resources/css/footer.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/RezoomIn/resources/css/myBoot.css">
+ <link href="/RezoomIn/resources/css/footer.css" rel="stylesheet" type="text/css">
 
 
 </head>
@@ -57,8 +57,8 @@
 			$.ajax({
 				/* type:'post', */
 				type:'get',
-				/* url:'/TestFinalProject/strength.do', */
-				url:'/TestFinalProject/strengthload.do',
+				/* url:'/RezoomIn/strength.do', */
+				url:'/RezoomIn/strengthload.do',
 				data:{"id":'yeeee4'},
 				success:function(res){
 					var obj = JSON.parse(res);
@@ -137,8 +137,8 @@
             var jsonData = JSON.stringify(obj);
 			
 			$.ajax({
-				/* url:'/TestFinalProject/strength.do', */
-				url:'/TestFinalProject/strengthreport.do',
+				/* url:'/RezoomIn/strength.do', */
+				url:'/RezoomIn/strengthreport.do',
 				/* type:'POST', */
 				type:'GET',
 				data : { json : jsonData },
